@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem; 
 
 public class Camerascript : MonoBehaviour
@@ -35,5 +36,6 @@ public class Camerascript : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         rotationY += mouseX * mouseSensitivity * Time.deltaTime;
         transform.localRotation = Quaternion.Euler(0f, rotationY, 0f);
+        
     }
 }

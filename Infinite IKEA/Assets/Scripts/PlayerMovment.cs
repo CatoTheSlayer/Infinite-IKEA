@@ -22,7 +22,6 @@ controller = GetComponent<CharacterController>();
 
 void Update()
 {
-rotation();
 // Check if the player is grounded
 isGrounded = controller.isGrounded;
 if (isGrounded && velocity.y < 0)
@@ -49,12 +48,5 @@ velocity.y += gravity * Time.deltaTime;
 
 // Apply vertical movement
 controller.Move(velocity * Time.deltaTime);
-}
-void rotation()
-{
-    float mouseX = Input.GetAxis("Mouse X");
-    rotationY += mouseX * mouseSensitivity * Time.deltaTime;
-    transform.localRotation = Quaternion.Euler(0f, rotationY, 0f);
-    
 }
 }
