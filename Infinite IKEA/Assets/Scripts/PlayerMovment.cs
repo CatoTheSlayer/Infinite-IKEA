@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+[SerializeField] 
+private float mouseSensitivity = 2f;
+
+private float rotationY;
 private CharacterController controller;
 public float speed = 6.0f;
 public float jumpHeight = 1.5f;
@@ -17,6 +22,7 @@ controller = GetComponent<CharacterController>();
 
 void Update()
 {
+rotation();
 // Check if the player is grounded
 isGrounded = controller.isGrounded;
 if (isGrounded && velocity.y < 0)
@@ -43,5 +49,12 @@ velocity.y += gravity * Time.deltaTime;
 
 // Apply vertical movement
 controller.Move(velocity * Time.deltaTime);
+}
+void rotation()
+{
+    float mouseX = Input.GetAxis("Mouse X");
+    rotationY += mouseX * mouseSensitivity * Time.deltaTime;
+    transform.localRotation = Quaternion.Euler(0f, rotationY, 0f);
+    
 }
 }

@@ -3,11 +3,14 @@ using UnityEngine.InputSystem;
 
 public class Camerascript : MonoBehaviour
 {
+    [SerializeField]
+    private float mouseSensitivity = 2f;
+
     private InputAction LookAction;
     private Vector2 lookInput = Vector2.zero;
     public float distanceToPlayer = 5f;
     float yRotation;
-    float lookat;
+    float rotationY;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -18,6 +21,7 @@ public class Camerascript : MonoBehaviour
     void Update()
     {
         lookInput += LookAction.ReadValue<Vector2>();
+        something();
     }
     void FixedUpdate()
     {
@@ -25,5 +29,11 @@ public class Camerascript : MonoBehaviour
         transform.position = transform.parent.position - new Vector3(distanceToPlayer, yRotation, 0).normalized * distanceToPlayer;
         transform.LookAt(transform.parent.position);
         lookInput = Vector2.zero;
+    }
+    void something()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        rotationY += mouseX * mouseSensitivity * Time.deltaTime;
+        transform.localRotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 }
