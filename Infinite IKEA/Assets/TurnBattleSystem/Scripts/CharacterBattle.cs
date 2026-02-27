@@ -17,7 +17,7 @@ using UnityEngine;
 using CodeMonkey.Utils;
 
 public class CharacterBattle : MonoBehaviour {
-
+    [SerializeField] private Inventory inventory;
     private Character_Base characterBase;
     private State state;
     private Vector3 slideTargetPosition;
@@ -26,6 +26,7 @@ public class CharacterBattle : MonoBehaviour {
     private GameObject selectionCircleGameObject;
     private HealthSystem healthSystem;
     private World_Bar healthBar;
+    
 
     private enum State {
         Idle,
@@ -137,7 +138,7 @@ public class CharacterBattle : MonoBehaviour {
                 SlideToPosition(startingPosition, () => {
                     // Slide back completed, back to idle
                     state = State.Idle;
-                    characterBase.PlayAnimIdle(attackDir);
+                    //characterBase.PlayAnimIdle(attackDir);
                     onAttackComplete();
                 });
             });
@@ -149,9 +150,9 @@ public class CharacterBattle : MonoBehaviour {
         this.onSlideComplete = onSlideComplete;
         state = State.Sliding;
         if (slideTargetPosition.x > 0) {
-            characterBase.PlayAnimSlideRight();
+            //characterBase.PlayAnimSlideRight();
         } else {
-            characterBase.PlayAnimSlideLeft();
+            //characterBase.PlayAnimSlideLeft();
         }
     }
 
