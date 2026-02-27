@@ -23,7 +23,7 @@ public class BattleHandler : MonoBehaviour {
     }
 
 
-    [SerializeField] private Transform pfCharacterBattle;
+    [SerializeField] private Transform CharacterBattlePrefab;
     public Texture2D playerSpritesheet;
     public Texture2D enemySpritesheet;
 
@@ -67,7 +67,7 @@ public class BattleHandler : MonoBehaviour {
         } else {
             position = new Vector3(+50, 0);
         }
-        Transform characterTransform = Instantiate(pfCharacterBattle, position, Quaternion.identity);
+        Transform characterTransform = Instantiate(CharacterBattlePrefab, position, Quaternion.identity);
         CharacterBattle characterBattle = characterTransform.GetComponent<CharacterBattle>();
         characterBattle.Setup(isPlayerTeam);
 

@@ -1,4 +1,4 @@
-﻿/* 
+/* 
     ------------------- Code Monkey -------------------
 
     Thank you for downloading this package
@@ -31,6 +31,7 @@ public class CharacterBattle : MonoBehaviour {
         Idle,
         Sliding,
         Busy,
+        rangedAttack,
     }
 
     private void Awake() {
@@ -46,11 +47,11 @@ public class CharacterBattle : MonoBehaviour {
     public void Setup(bool isPlayerTeam) {
         this.isPlayerTeam = isPlayerTeam;
         if (isPlayerTeam) {
-            characterBase.SetAnimsSwordTwoHandedBack();
-            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet;
+            //characterBase.SetAnimsSwordTwoHandedBack();
+            //characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().playerSpritesheet; //change to be a 3d model
         } else {
-            characterBase.SetAnimsSwordShield();
-            characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet;
+            //characterBase.SetAnimsSwordShield();
+            //characterBase.GetMaterial().mainTexture = BattleHandler.GetInstance().enemySpritesheet; //change to be a 3d model
         }
         healthSystem = new HealthSystem(100);
         healthBar = new World_Bar(transform, new Vector3(0, 10), new Vector3(12, 1.7f), Color.grey, Color.red, 1f, 100, new World_Bar.Outline { color = Color.black, size = .6f });
@@ -65,9 +66,9 @@ public class CharacterBattle : MonoBehaviour {
 
     private void PlayAnimIdle() {
         if (isPlayerTeam) {
-            characterBase.PlayAnimIdle(new Vector3(+1, 0));
+            //characterBase.PlayAnimIdle(new Vector3(+1, 0));
         } else {
-            characterBase.PlayAnimIdle(new Vector3(-1, 0));
+            //characterBase.PlayAnimIdle(new Vector3(-1, 0));
         }
     }
 
@@ -77,7 +78,7 @@ public class CharacterBattle : MonoBehaviour {
             break;
         case State.Busy:
             break;
-        case State.Sliding:
+        case State.Sliding: // see if the weapon is ranged or melee and then play the correct animation for the character to slide in and attack
             float slideSpeed = 10f;
             transform.position += (slideTargetPosition - GetPosition()) * slideSpeed * Time.deltaTime;
 
@@ -88,13 +89,15 @@ public class CharacterBattle : MonoBehaviour {
                 onSlideComplete();
             }
             break;
+            case State.rangedAttack:
+            break;
         }
     }
 
     public Vector3 GetPosition() {
         return transform.position;
     }
-
+// Make the damage take a spicific amount of damage from what ever weapon that the attacker is using.
     public void Damage(CharacterBattle attacker, int damageAmount) {
         healthSystem.Damage(damageAmount);
         //CodeMonkey.CMDebug.TextPopup("Hit " + healthSystem.GetHealthAmount(), GetPosition());
@@ -127,7 +130,7 @@ public class CharacterBattle : MonoBehaviour {
             Vector3 attackDir = (targetCharacterBattle.GetPosition() - GetPosition()).normalized;
             characterBase.PlayAnimAttack(attackDir, () => {
                 // Target hit
-                int damageAmount = UnityEngine.Random.Range(20, 50);
+                int damageAmount = UnityEngine.Random.Range(20, 50); //change to take from a list of weapons that the player has
                 targetCharacterBattle.Damage(this, damageAmount);
                 }, () => {
                 // Attack completed, slide back
