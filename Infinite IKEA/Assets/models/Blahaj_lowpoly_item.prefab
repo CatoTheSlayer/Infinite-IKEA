@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7743021241420345437
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.487798
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.403122
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_Name
+      value: Blahaj_lowpoly_item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4766976524844837172}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4498738903348063199}
+    - targetCorrespondingSourceObject: {fileID: -1800835159896893642, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4109715383792442565}
+  m_SourcePrefab: {fileID: 100100000, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+--- !u!1 &898073666945165163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1800835159896893642, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+  m_PrefabInstance: {fileID: 7743021241420345437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4109715383792442565
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898073666945165163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0125
+  m_Height: 0.09
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.0000000037252903, z: 0.000000029802322}
+--- !u!1 &7473113466805734668 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+  m_PrefabInstance: {fileID: 7743021241420345437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4766976524844837172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473113466805734668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69b4ea210ae5144db19e118391dcc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SC_PickItem
+  itemName: "Bl\xE5haj"
+  itemPreview: {fileID: 2800000, guid: 21a8e39b7b47f564bbb3a032581a28c8, type: 3}
+--- !u!54 &4498738903348063199
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473113466805734668}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
