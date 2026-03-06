@@ -10,6 +10,7 @@ public class SC_TPSController : MonoBehaviour
     public Transform playerCameraParent;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
+    public Camera playerCamera;
 
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
