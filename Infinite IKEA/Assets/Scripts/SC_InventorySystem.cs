@@ -3,7 +3,7 @@ using UnityEngine;
 public class SC_InventorySystem : MonoBehaviour
 {
     public Texture crosshairTexture;
-    public SC_TPSController playerController;
+    public PlayerController playerController;
     public SC_PickItem[] availableItems; //List with Prefabs of all the available items
 
     //Available items slots
@@ -11,6 +11,7 @@ public class SC_InventorySystem : MonoBehaviour
     bool showInventory = false;
     float windowAnimation = 1;
     float animationTimer = 0;
+
 
     //UI Drag & Drop
     int hoveringOverIndex = -1;
