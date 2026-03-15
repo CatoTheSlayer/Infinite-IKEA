@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/LevelMenu.uss?fileID=7433441132597879392&amp;guid=f0323baf9b516ca48ae36d8a66ccb07a&amp;type=3#LevelMenu"/>
+    <ui:VisualElement name="Baggrund" class="baggrund" style="flex-grow: 1;">
+        <ui:Button text="Level 1" name="Level1" class="button"/>
+    </ui:VisualElement>
+</ui:UXML>
