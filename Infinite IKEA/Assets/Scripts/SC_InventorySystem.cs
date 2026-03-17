@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SC_InventorySystem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SC_InventorySystem : MonoBehaviour
     bool showInventory = false;
     float windowAnimation = 1;
     float animationTimer = 0;
+    Vector2 mousePosition;
 
 
     //UI Drag & Drop
@@ -34,12 +36,17 @@ public class SC_InventorySystem : MonoBehaviour
             itemSlots[i] = -1;
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Interact(InputAction.CallbackContext context)
     {
-        //Show/Hide inventory
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if(context.started)
+        {
+            interact();
+        }
+    }
+
+    public void Inventory(InputAction.CallbackContext context)
+    {
+        if(context.started)
         {
             showInventory = !showInventory;
             animationTimer = 0;
@@ -55,6 +62,22 @@ public class SC_InventorySystem : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
+    }
+    public void Mouseclick(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            ItemDrag();
+        }
+    }    
+    public void MousePosition(InputAction.CallbackContext context)
+    {
+        mousePosition = context.ReadValue<Vector2>();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        //Show/Hide inventory
 
         if (animationTimer < 1)
         {
@@ -71,57 +94,7 @@ public class SC_InventorySystem : MonoBehaviour
             windowAnimation = Mathf.Lerp(windowAnimation, 1f, animationTimer);
             playerController.canMove = true;
         }
-
-        //Begin item drag
-        if (Input.GetMouseButtonDown(0) && hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1)
-        {
-            itemIndexToDrag = hoveringOverIndex;
-        }
-
-        //Release dragged item
-        if (Input.GetMouseButtonUp(0) && itemIndexToDrag > -1)
-        {
-            if (hoveringOverIndex < 0)
-            {
-                //Drop the item outside
-                Instantiate(availableItems[itemSlots[itemIndexToDrag]], playerController.playerCamera.transform.position + playerController.playerCamera.transform.forward * 5f, Quaternion.identity);
-                itemSlots[itemIndexToDrag] = -1;
-            }
-            else
-            {
-                //Switch items between the selected slot and the one we are hovering on
-                int itemIndexTmp = itemSlots[itemIndexToDrag];
-                itemSlots[itemIndexToDrag] = itemSlots[hoveringOverIndex];
-                itemSlots[hoveringOverIndex] = itemIndexTmp;
-
-            }
-            itemIndexToDrag = -1;
-        }
-
-        //Item pick up
-        if (detectedItem && detectedItemIndex > -1)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                //Add the item to inventory
-                int slotToAddTo = -1;
-                for (int i = 0; i < itemSlots.Length; i++)
-                {
-                    if (itemSlots[i] == -1)
-                    {
-                        slotToAddTo = i;
-                        break;
-                    }
-                }
-                if (slotToAddTo > -1)
-                {
-                    itemSlots[slotToAddTo] = detectedItemIndex;
-                    detectedItem.PickItem();
-                }
-            }
-        }
     }
-
     void FixedUpdate()
     {
         //Detect if the Player is looking at any item
@@ -160,6 +133,53 @@ public class SC_InventorySystem : MonoBehaviour
         }
     }
 
+void interact()
+    {
+        if (detectedItem && detectedItemIndex > -1)
+        {
+
+            //Add the item to inventory
+            int slotToAddTo = -1;
+            for (int i = 0; i < itemSlots.Length; i++)
+            {
+                if (itemSlots[i] == -1)
+                {
+                    slotToAddTo = i;
+                    break;
+                }
+            }
+            if (slotToAddTo > -1)
+            {
+                itemSlots[slotToAddTo] = detectedItemIndex;
+                detectedItem.PickItem();
+            }
+        }
+    }
+    void ItemDrag()
+    {
+        if(hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1)
+        {
+            itemIndexToDrag = hoveringOverIndex;
+        }
+         else if (itemIndexToDrag > -1)
+        {
+            if (hoveringOverIndex < 0)
+            {
+                //Drop the item outside
+                Instantiate(availableItems[itemSlots[itemIndexToDrag]], playerController.playerCamera.transform.position + playerController.playerCamera.transform.forward * 5f, Quaternion.identity);
+                itemSlots[itemIndexToDrag] = -1;
+            }
+            else
+            {
+                //Switch items between the selected slot and the one we are hovering on
+                int itemIndexTmp = itemSlots[itemIndexToDrag];
+                itemSlots[itemIndexToDrag] = itemSlots[hoveringOverIndex];
+                itemSlots[hoveringOverIndex] = itemIndexTmp;
+
+            }
+            itemIndexToDrag = -1;
+        }
+    }
     void OnGUI()
     {
         //Inventory UI
@@ -235,18 +255,18 @@ public class SC_InventorySystem : MonoBehaviour
         {
             if (availableItems[itemSlots[itemIndexToDrag]].itemPreview)
             {
-                GUI.Box(new Rect(Input.mousePosition.x + dragOffset.x, Screen.height - Input.mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemPreview);
+                GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemPreview);
             }
             else
             {
-                GUI.Box(new Rect(Input.mousePosition.x + dragOffset.x, Screen.height - Input.mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemName);
+                GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemName);
             }
         }
 
         //Display item name when hovering over it
         if (hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1 && itemIndexToDrag < 0)
         {
-            GUI.Box(new Rect(Input.mousePosition.x, Screen.height - Input.mousePosition.y - 30, 100, 25), availableItems[itemSlots[hoveringOverIndex]].itemName);
+            GUI.Box(new Rect(mousePosition.x, Screen.height - mousePosition.y - 30, 100, 25), availableItems[itemSlots[hoveringOverIndex]].itemName);
         }
 
         if (!showInventory)

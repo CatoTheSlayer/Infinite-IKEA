@@ -7,6 +7,9 @@ using UnityEngine.SocialPlatforms;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    
+    private float gravity = 9.81f;
+    private float verticalVelocity = 0f;
 
         [Header("look")]
 [SerializeField]    private float lookSensitivity = 1f;
@@ -22,23 +25,59 @@ public class PlayerController : MonoBehaviour
     private InputAction lookAction;
     internal bool canMove = true;
     public Camera playerCamera;
+    public float jumpForce = 5f;
+
     private Vector2 input;
     private Vector2 lookInput;
     private Vector3 moveDirection;
-    private float gravity = 9.81f;
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+
         moveAction = playerInput.actions["Move"];
         lookAction = playerInput.actions["Look"];
         rigidBody = GetComponent<Rigidbody>();
+
+        // Ensure physics handles gravity + rotation
+        rigidBody.useGravity = true;
+        rigidBody.freezeRotation = true;
+        rigidBody.isKinematic = false; // required for MovePosition
+
+        // Make movement unimpeded by drag / sleep
+        rigidBody.linearDamping = 0f;
+        rigidBody.angularDamping = 0f;
+        rigidBody.sleepThreshold = 0f;
+        rigidBody.WakeUp();
+
+        // Make sure Input System input is captured even if Send Messages isn't wired up.
+        if (moveAction != null)
+        {
+            moveAction.performed += ctx => input = ctx.ReadValue<Vector2>();
+            moveAction.canceled += ctx => input = Vector2.zero;
+            moveAction.Enable();
+        }
+
+        if (lookAction != null)
+        {
+            lookAction.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
+            lookAction.canceled += ctx => lookInput = Vector2.zero;
+            lookAction.Enable();
+        }
     }
     void Update()
     {
-        // read look every frame, rotate body & camera
+        // Read look input every frame so rotation stays responsive.
+        if (lookAction != null)
+            lookInput = lookAction.ReadValue<Vector2>();
+
         HandleLook(Time.deltaTime);
+
+        // Monitor if position is being reset by something else
+        lastFramePos = transform.position;
     }
+
+    private Vector3 lastFramePos;
     public void move(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
@@ -51,19 +90,27 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started && canMove)
         {
-            transform.Translate(Vector3.up * 5f);
+            // Apply jump by setting upward vertical velocity
+            verticalVelocity = jumpForce;
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }
     }
 
     private void FixedUpdate()
     {
-        if(canMove){
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        Vector3 right = transform.TransformDirection(Vector3.right);
-        float curSpeedX = moveSpeed * input.y;
-        float curSpeedY = moveSpeed * input.x;
-        moveDirection = (forward * curSpeedX) + (right * curSpeedY);
-        transform.localPosition = moveDirection * Time.deltaTime + transform.localPosition;
+        if (canMove)
+        {
+            if (moveAction != null)
+                input = moveAction.ReadValue<Vector2>();
+
+            Vector3 forward = transform.TransformDirection(Vector3.forward);
+            Vector3 right = transform.TransformDirection(Vector3.right);
+
+
+            Vector3 moveDir = (forward * input.y) + (right * input.x);
+            Vector3 displacement = moveDir * moveSpeed * Time.fixedDeltaTime;
+            // Apply movement
+            rigidBody.MovePosition(rigidBody.position + displacement);
         }
     }
     public void HandleLook(float deltaTime)
