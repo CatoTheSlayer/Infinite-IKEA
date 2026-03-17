@@ -1,0 +1,22 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/levelMenu.uss?fileID=7433441132597879392&amp;guid=f0323baf9b516ca48ae36d8a66ccb07a&amp;type=3#levelMenu"/>
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement name="Bagrund" class="bagrund" style="flex-grow: 1;"/>
+        <ui:Label text="Chose your mission" name="Titel" class="Titel"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="MissionBlock" class="MissionBlock" style="flex-grow: 1;">
+        <ui:Label text="Mission 1" name="MissionTitle" class="MissionBlockTitle" style="font-size: 25px;"/>
+        <ui:Label text="blablabla&#10;blalblablalblallblflg,lvfv&#10;fmbfmbkmdæmæ&#10;væmfvmlmbcxmvv&#10;&#10;mfmåfbmåbmfå" name="FillerTekst" class="MissionBlockFiller"/>
+        <ui:Button text="" name="StartMission" class="MissionBlockButton" style="align-self: flex-start; margin-top: 150px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="MissionBlock" class="MissionBlock" style="flex-grow: 1; align-self: center;">
+        <ui:Label text="Mission 1" name="MissionTitle" class="MissionBlockTitle" style="font-size: 25px;"/>
+        <ui:Label text="blablabla&#10;blalblablalblallblflg,lvfv&#10;fmbfmbkmdæmæ&#10;væmfvmlmbcxmvv&#10;&#10;mfmåfbmåbmfå" name="FillerTekst" class="MissionBlockFiller"/>
+        <ui:Button text="" name="StartMission" class="MissionBlockButton" style="align-self: flex-start; margin-top: 150px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="MissionBlock" class="MissionBlock" style="flex-grow: 1; align-self: flex-end; margin-left: 0; top: 0; left: 564px; margin-right: 0; position: absolute;">
+        <ui:Label text="Mission 1" name="MissionTitle" class="MissionBlockTitle" style="font-size: 25px;"/>
+        <ui:Label text="blablabla&#10;blalblablalblallblflg,lvfv&#10;fmbfmbkmdæmæ&#10;væmfvmlmbcxmvv&#10;&#10;mfmåfbmåbmfå" name="FillerTekst" class="MissionBlockFiller"/>
+        <ui:Button text="" name="StartMission" class="MissionBlockButton" style="align-self: flex-start; margin-top: 150px; margin-right: 4px; margin-bottom: 2px; margin-left: 4px;"/>
+    </ui:VisualElement>
+</ui:UXML>
