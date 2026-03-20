@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 input;
     private Vector2 lookInput;
+    private bool IsGrounded;
+    private float Height = 1.5f; // Adjust based on your character's height
 
     void Awake()
     {
@@ -71,6 +73,16 @@ public class PlayerController : MonoBehaviour
 
         HandleLook(Time.deltaTime);
 
+        if (Physics.Raycast(transform.position, Vector3.down, Height))
+        {
+            IsGrounded = true;
+            Debug.Log("Grounded");
+        }
+        else
+        {
+            IsGrounded = false;
+            Debug.Log("Not Grounded!");
+        }
     }
 
     public void move(InputAction.CallbackContext context)
@@ -83,7 +95,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.started && canMove)
+        if (context.started && canMove && IsGrounded)
         {
             // Apply jump by setting upward vertical velocity
             verticalVelocity = jumpForce;
