@@ -1,4 +1,5 @@
 using Unity.Mathematics;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.iOS;
@@ -23,11 +24,14 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     internal bool canMove = true;
+    public Animator animator;
+
 [SerializeField]    internal Camera playerCamera;
 [SerializeField]    private float jumpForce = 5f;
 
     private Vector2 input;
     private Vector2 lookInput;
+    private bool iswalking = false;
 
     void Awake()
     {
@@ -83,12 +87,16 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
+
         if (context.started && canMove)
         {
             // Apply jump by setting upward vertical velocity
             verticalVelocity = jumpForce;
+
+            //    animator.SetBool("isJumping", true);
+            //    animator.SetBool("isJumping", false);
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
-        }
+        }   
     }
 
     private void FixedUpdate()
@@ -106,6 +114,17 @@ public class PlayerController : MonoBehaviour
             Vector3 displacement = moveDir * moveSpeed * Time.fixedDeltaTime;
             // Apply movement
             rigidBody.MovePosition(rigidBody.position + displacement);
+            /*
+            if (iswalking == true)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                animator.SetBool("isWalking", false);
+            }
+            */
+
         }
     }
     public void HandleLook(float deltaTime)
