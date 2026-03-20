@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private bool IsGrounded;
     private float Height = 1.5f; // Adjust based on your character's height
-    private bool iswalking = false;
+
 
     void Awake()
     {
@@ -113,7 +113,9 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             if (moveAction != null)
+            {
                 input = moveAction.ReadValue<Vector2>();
+            }
           
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
@@ -123,8 +125,8 @@ public class PlayerController : MonoBehaviour
             Vector3 displacement = moveDir * moveSpeed * Time.fixedDeltaTime;
             // Apply movement
             rigidBody.MovePosition(rigidBody.position + displacement);
-            /*
-            if (iswalking == true)
+
+            if (input.y != 0||input.x != 0)
             {
                 animator.SetBool("isWalking", true);
             }
@@ -132,8 +134,6 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("isWalking", false);
             }
-            */
-
         }
     }
     public void HandleLook(float deltaTime)
