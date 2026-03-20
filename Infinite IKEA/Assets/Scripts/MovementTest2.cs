@@ -90,11 +90,9 @@ public class PlayerController : MonoBehaviour
 
         if (context.started && canMove)
         {
+            animator.SetTrigger("isJumping");
             // Apply jump by setting upward vertical velocity
             verticalVelocity = jumpForce;
-
-            //    animator.SetBool("isJumping", true);
-            //    animator.SetBool("isJumping", false);
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
         }   
     }
@@ -105,7 +103,7 @@ public class PlayerController : MonoBehaviour
         {
             if (moveAction != null)
                 input = moveAction.ReadValue<Vector2>();
-
+          
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);
 
