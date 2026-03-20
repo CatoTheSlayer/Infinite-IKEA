@@ -1,0 +1,49 @@
+:root {
+}
+
+.baggrund {
+    background-color: rgb(255, 255, 255);
+}
+
+.Button {
+    align-self: flex-start;
+    position: relative;
+    width: 250px;
+    height: 60px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 20px;
+    -unity-text-align: middle-left;
+    white-space: normal;
+    -unity-font-style: bold;
+    text-overflow: clip;
+    word-spacing: 0;
+    letter-spacing: 5px;
+    -unity-paragraph-spacing: 0;
+    -unity-text-auto-size: none;
+    background-color: rgb(213, 213, 213);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.Titel {
+    color: rgb(255, 218, 26);
+    font-size: 50px;
+    align-self: center;
+    -unity-font-style: bold;
+    -unity-text-outline-width: 3px;
+    -unity-text-outline-color: rgb(0, 81, 186);
+    text-shadow: 0 0 0 rgb(0, 81, 186);
+}
