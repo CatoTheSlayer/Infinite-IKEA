@@ -1,15 +1,14 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.iOS;
 using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.SocialPlatforms;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    
-    private float gravity = 9.81f;
-    private float verticalVelocity = 0f;
+[SerializeField]    private float moveSpeed = 5f;
+    private float verticalVelocity; // for jump physics
 
         [Header("look")]
 [SerializeField]    private float lookSensitivity = 1f;
@@ -24,12 +23,11 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     internal bool canMove = true;
-    public Camera playerCamera;
-    public float jumpForce = 5f;
+[SerializeField]    private Camera playerCamera;
+[SerializeField]    private float jumpForce = 5f;
 
     private Vector2 input;
     private Vector2 lookInput;
-    private Vector3 moveDirection;
 
     void Awake()
     {
@@ -73,11 +71,8 @@ public class PlayerController : MonoBehaviour
 
         HandleLook(Time.deltaTime);
 
-        // Monitor if position is being reset by something else
-        lastFramePos = transform.position;
     }
 
-    private Vector3 lastFramePos;
     public void move(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
@@ -127,12 +122,6 @@ public class PlayerController : MonoBehaviour
         if (cameraTransform != null)
             cameraTransform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
         }
-    }
-
-
-    void Test()
-    {
-        Debug.Log("test");
     }
 }
 
