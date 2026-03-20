@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction lookAction;
     internal bool canMove = true;
-[SerializeField]    private Camera playerCamera;
+[SerializeField]    internal Camera playerCamera;
 [SerializeField]    private float jumpForce = 5f;
 
     private Vector2 input;
