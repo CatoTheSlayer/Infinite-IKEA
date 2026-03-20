@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/bord og stole rum.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: d099247ad99c281409fc5c899572c4ad
+  - enabled: 1
+    path: Assets/Scenes/LevelMenu.unity
+    guid: bd8c03632a471f3439fa1f7650b05258
+  - enabled: 1
+    path: Assets/Scenes/First Level.unity
+    guid: 4f0c93f2734f390458227676292659e0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ee25230a6b131304ca725ebdf7f29276, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/StartMenu.uss?fileID=7433441132597879392&amp;guid=b58702f1716bdba4884e928f3380d813&amp;type=3#StartMenu"/>
+    <ui:VisualElement name="Bagrund" class="baggrund" style="flex-grow: 1; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+        <ui:Label text="Infinite IKEA" name="Titel" class="Titel"/>
+        <ui:Button text="   Start" name="StartSpilKnap" class="Button"/>
+        <ui:Button text="   Settings" name="SettingsButton" class="Button"/>
+        <ui:Button text="   Quit" name="QuitButton" class="Button"/>
+    </ui:VisualElement>
+</ui:UXML>
