@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/bord og stole rum.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/First Level.unity
     guid: 4f0c93f2734f390458227676292659e0
+  - enabled: 1
+    path: Assets/Scenes/SecondLevel.unity
+    guid: e9a364557fbf37a4faf61b9bbc2850ba
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ee25230a6b131304ca725ebdf7f29276, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
