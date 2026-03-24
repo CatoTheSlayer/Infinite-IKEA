@@ -80,12 +80,12 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, Height))
         {
             IsGrounded = true;
-            Debug.Log("Grounded");
+            //Debug.Log("Grounded");
         }
         else
         {
             IsGrounded = false;
-            Debug.Log("Not Grounded!");
+            //Debug.Log("Not Grounded!");
         }
     }
 
