@@ -1,7 +1,18 @@
 :root {
 }
 
-.Heathbar {
+.Healthbar {
     position: absolute;
     background-color: rgb(0, 0, 0);
+}
+
+.AttackButton {
+    position: relative;
+    align-self: center;
+    top: -3%;
+    left: -46%;
+    right: auto;
+    bottom: auto;
+    width: 10%;
+    height: 5%;
 }
