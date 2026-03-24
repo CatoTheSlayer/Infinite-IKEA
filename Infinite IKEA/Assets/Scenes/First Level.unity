@@ -12945,6 +12945,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 881027314095315689, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881027314095315689, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 881027314095315689, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084752324961491559, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_Height
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084752324961491559, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084752324961491559, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084752324961491559, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -12955,7 +12983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.26
+      value: 1.683
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38729,6 +38757,7 @@ SceneRoots:
   - {fileID: 419670774}
   - {fileID: 150258493}
   - {fileID: 716067284}
+  - {fileID: 718009219}
   - {fileID: 1439179937}
   - {fileID: 741850001}
   - {fileID: 171384443}
@@ -38974,4 +39003,3 @@ SceneRoots:
   - {fileID: 1051782608}
   - {fileID: 1410157522}
   - {fileID: 1993556154}
-  - {fileID: 718009219}
