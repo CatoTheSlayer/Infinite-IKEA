@@ -39,11 +39,11 @@
 }
 
 .Titel {
-    color: rgb(255, 218, 26);
+    color: rgb(58, 121, 187);
     font-size: 50px;
     align-self: center;
     -unity-font-style: bold;
-    -unity-text-outline-width: 3px;
-    -unity-text-outline-color: rgb(0, 81, 186);
+    -unity-text-outline-width: 1px;
+    -unity-text-outline-color: rgb(255, 218, 26);
     text-shadow: 0 0 0 rgb(0, 81, 186);
 }
