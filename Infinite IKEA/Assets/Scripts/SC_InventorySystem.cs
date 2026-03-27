@@ -8,7 +8,7 @@ public class SC_InventorySystem : MonoBehaviour
     public SC_PickItem[] availableItems; //List with Prefabs of all the available items
 
     //Available items slots
-    public int[] itemSlots = new int[12]; // Example inventory slots, can be modified as needed
+    int[] itemSlots = new int[12];
     bool showInventory = false;
     float windowAnimation = 1;
     float animationTimer = 0;
@@ -29,8 +29,7 @@ public class SC_InventorySystem : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        MainManager.Instance.itemSlots = itemSlots; // Link the inventory system's item slots to the main manager's item slots for global access
-        MainManager.Instance.availableItems = availableItems; // Link the inventory system's available items to the main manager's available items for global access
+
         //Initialize Item Slots
         for (int i = 0; i < itemSlots.Length; i++)
         {
