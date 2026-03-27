@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Button text="Food 1" name="FoodButton1" style="position: absolute; top: 70%; left: 70%; width: 100px; height: 50px;"/>
+    <ui:Button text="Food 2" name="FoodButton2" style="width: 100px; height: 50px; top: 70%; left: 85%;"/>
+    <ui:Button text="Food 3" name="FoodButton3" style="position: absolute; top: 85%; left: 70%; width: 100px; height: 50px;"/>
+    <ui:Button text="Food 4" name="FoodButton4" style="width: 100px; height: 50px; position: absolute; top: 85%; left: 85%;"/>
+    <ui:Button text="Back" name="BackToMenuFromFood" style="position: absolute; top: 85%; left: 5%; width: 100px; height: 50px;"/>
+</ui:UXML>

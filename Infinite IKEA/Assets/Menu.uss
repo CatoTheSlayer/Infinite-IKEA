@@ -1,0 +1,11 @@
+:root {
+    top: 80%;
+    position: absolute;
+}
+
+.AttackMenuButton {
+    top: 80%;
+    left: 10%;
+    width: 80px;
+    height: 40px;
+}
