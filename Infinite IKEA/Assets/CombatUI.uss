@@ -3,7 +3,7 @@
 
 .AttackButton {
     top: 90%;
-    left: 82%;
+    left: 2%;
     width: 15%;
     height: 7%;
     font-size: 25px;
@@ -30,4 +30,8 @@
 }
 
 .HP {
+    width: 20%;
+    height: 10%;
+    left: 76%;
+    top: 2%;
 }
