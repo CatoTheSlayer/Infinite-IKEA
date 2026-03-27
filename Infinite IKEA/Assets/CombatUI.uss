@@ -1,18 +1,33 @@
 :root {
 }
 
-.Healthbar {
+.AttackButton {
+    top: 90%;
+    left: 82%;
+    width: 15%;
+    height: 7%;
+    font-size: 25px;
+    visibility: visible;
     position: absolute;
-    background-color: rgb(0, 0, 0);
 }
 
-.AttackButton {
-    position: relative;
-    align-self: center;
-    top: -3%;
-    left: -46%;
-    right: auto;
-    bottom: auto;
-    width: 10%;
-    height: 5%;
+.Item {
+    top: 80%;
+    left: 82%;
+    position: absolute;
+    width: 15%;
+    height: 7%;
+    font-size: 25px;
+}
+
+.Back {
+    left: 2%;
+    top: 90%;
+    position: absolute;
+    width: 15%;
+    height: 7%;
+    visibility: hidden;
+}
+
+.HP {
 }
