@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.487798
+      value: 1.7721497
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.403122
+      value: -2.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -129,6 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SC_PickItem
   itemName: "Bl\xE5haj"
   itemPreview: {fileID: 2800000, guid: 21a8e39b7b47f564bbb3a032581a28c8, type: 3}
+  itemDescription: A blue shark that is usper soft
+  itemDamage: 30
+  itemHeal: 0
 --- !u!54 &4498738903348063199
 Rigidbody:
   m_ObjectHideFlags: 0
