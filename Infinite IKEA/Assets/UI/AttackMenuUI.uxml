@@ -1,0 +1,7 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Button text="Attack 1" name="AttackButton1" style="position: absolute; top: 70%; width: 100px; height: 50px; left: 70%;"/>
+    <ui:Button text="Attack 2" name="AttackButton2" style="position: absolute; width: 100px; height: 50px; top: 70%; left: 85%;"/>
+    <ui:Button text="Attack 3" name="AttackButton3" style="top: 85%; position: absolute; left: 70%; width: 100px; height: 50px;"/>
+    <ui:Button text="Attack 4" name="AttackButton4" style="position: absolute; top: 85%; left: 85%; width: 100px; height: 50px;"/>
+    <ui:Button text="Back " name="BackToMenuButton" style="width: 100px; height: 50px; position: absolute; top: 85%; left: 5%;"/>
+</ui:UXML>
