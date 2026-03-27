@@ -25,7 +25,7 @@ public class StartMenuEvents : MonoBehaviour
 
         _SettingsButton = _StartMenuDokument.rootVisualElement.Q("SettingsButton") as Button;
         _SettingsButton.RegisterCallback<ClickEvent>(OnSettingClick);
-    }
+    }    
 
     private void OnDisable()
     {

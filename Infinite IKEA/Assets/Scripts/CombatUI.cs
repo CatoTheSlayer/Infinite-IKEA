@@ -17,7 +17,7 @@ public class CombatUI : MonoBehaviour
 
     void OnDisable()
     {
-        attackButton.UnregisterCallback<ClickEvent>(OnAttackButtonClick);
+            attackButton.UnregisterCallback<ClickEvent>(OnAttackButtonClick);
     }
 
     void OnAttackButtonClick(ClickEvent evt)
