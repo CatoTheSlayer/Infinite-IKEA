@@ -27,17 +27,19 @@ public class SC_InventorySystem : MonoBehaviour
     internal bool combatIsStarted = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        MainManager.Instance.itemSlots = itemSlots; // Link the inventory system's item slots to the main manager's item slots for global access
-        MainManager.Instance.availableItems = availableItems; // Link the inventory system's available items to the main manager's available items for global accesss
-        //Initialize Item Slots
         for (int i = 0; i < itemSlots.Length; i++)
         {
             itemSlots[i] = -1;
         }
+    }
+    void Start()
+    {
+        MainManager.Instance.itemSlots = itemSlots; // Link the inventory system's item slots to the main manager's item slots for global access
+        MainManager.Instance.availableItems = availableItems; // Link the inventory system's available items to the main manager's available items for global accesss
     }
     public void Interact(InputAction.CallbackContext context)
     {

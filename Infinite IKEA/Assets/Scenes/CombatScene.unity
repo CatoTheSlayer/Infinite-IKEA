@@ -191,6 +191,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
+  _HPbarUIDokument: {fileID: 0}
   ItemSlots: 
 --- !u!1001 &325559648
 PrefabInstance:
@@ -321,6 +322,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
+  _HPbarUIDokument: {fileID: 0}
   ItemSlots: 
 --- !u!1 &593561282
 GameObject:
@@ -402,6 +404,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
+  _HPbarUIDokument: {fileID: 1934024245}
   ItemSlots: 
 --- !u!114 &633108691
 MonoBehaviour:
@@ -475,6 +478,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
+  _HPbarUIDokument: {fileID: 0}
   ItemSlots: 
 --- !u!114 &677708668
 MonoBehaviour:
@@ -972,6 +976,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
+  _HPbarUIDokument: {fileID: 0}
   ItemSlots: 
 --- !u!1001 &2039558068
 PrefabInstance:
