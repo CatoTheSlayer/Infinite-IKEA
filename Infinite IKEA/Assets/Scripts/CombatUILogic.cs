@@ -38,6 +38,7 @@ public class CombatUI1 : MonoBehaviour
     private SC_PickItem[] availableItems;
     private ProgressBar progressBar;
     private SC_InventorySystem inventorySystem;
+    private AttackUI attackUI;
 
     //Due: Opsætning af de forskellige knapper og UI Dokuments
     private void Awake()
@@ -63,10 +64,7 @@ public class CombatUI1 : MonoBehaviour
         progressBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("EnemyHp");
         progressBar.value = 100; // Set initial HP value
 
-        for (int i = 0; i < ItemSlots.Length; i++)
-        {
-            ItemSlots[i] = -1;
-        }
+       
     }
 
     //Due: Metode som styre UI til attack menu
@@ -153,41 +151,25 @@ public class CombatUI1 : MonoBehaviour
     //Due: Metode for attack knap 1
     private void AttackButton1(ClickEvent evt)
     {
-        Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
-        Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
-        progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
-        Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
-        Debug.Log("Current HP: " + progressBar.value);
+        attackUI.AttackButton1();
     }
     
     //Due: Metode for attack knap 2
     private void AttackButton2(ClickEvent evt)
     {
-        Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
-        Debug.Log("item name in slot 1: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemName);
-        progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
-        Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
-        Debug.Log("Current HP: " + progressBar.value);
+        attackUI.AttackButton2();
     }
     
     //Due: Metode for attack knap 3
     private void AttackButton3(ClickEvent evt)
     {
-        Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
-        Debug.Log("item name in slot 2: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemName);
-        progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage; // Example of calculating damage and updating HP
-        Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
-        Debug.Log("Current HP: " + progressBar.value);  
+        attackUI.AttackButton3();
     }
     
     //Due: Metode for attack knap 4
     private void AttackButton4(ClickEvent evt)
     {
-        Debug.Log("items in slot 3: " + mainManager.itemSlots[3]);
-        Debug.Log("item name in slot 3: " + mainManager.availableItems[mainManager.itemSlots[3]].itemName);
-        progressBar.value -= mainManager.availableItems[mainManager.itemSlots[3]].itemDamage; // Example of calculating damage and updating HP
-        Debug.Log("Damage dealt: " + mainManager.availableItems[mainManager.itemSlots[3]].itemDamage);
-        Debug.Log("Current HP: " + progressBar.value);
+        attackUI.AttackButton4();
     }
 
 
