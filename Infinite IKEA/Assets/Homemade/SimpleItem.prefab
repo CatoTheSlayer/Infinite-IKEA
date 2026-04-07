@@ -160,6 +160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SC_PickItem
   itemName: Cube
   itemPreview: {fileID: 2800000, guid: 2ec500925d1a8a649ab687b33c19477f, type: 3}
+  itemDescription: A cube
+  itemDamage: 0
+  itemHeal: 10
 --- !u!54 &6727852500395063594
 Rigidbody:
   m_ObjectHideFlags: 0

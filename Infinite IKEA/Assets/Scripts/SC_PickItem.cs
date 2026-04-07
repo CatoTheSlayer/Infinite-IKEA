@@ -4,7 +4,9 @@ public class SC_PickItem : MonoBehaviour
 {
     public string itemName = "Some Item"; //Each item must have an unique name
     public Texture itemPreview;
-
+    public string itemDescription;
+    public int itemDamage;
+    public int itemHeal;
     void Start()
     {
         //Change item tag to Respawn to detect when we look at it

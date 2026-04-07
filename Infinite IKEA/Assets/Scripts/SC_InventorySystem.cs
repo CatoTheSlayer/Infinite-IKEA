@@ -24,6 +24,8 @@ public class SC_InventorySystem : MonoBehaviour
     SC_PickItem detectedItem;
     int detectedItemIndex;
 
+    internal bool combatIsStarted = false;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -8,11 +8,15 @@ using UnityEngine.UIElements;
 public class CombatUI : MonoBehaviour
 {
     private MainManager mainManager;
+    private SC_InventorySystem inventorySystem;
     private UIDocument document;
     private Button AttackButton;
     private Button ItemButton;
     private Button BackButton;
     private ProgressBar progressBar;
+    private Texture inventoryContents;
+    public int[] ItemSlots;
+    private SC_PickItem[] availableItems;
     //need to make somthing that gets the inventorys contents and what is equiped
     
     void Awake()
