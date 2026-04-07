@@ -5,7 +5,7 @@ public class AttackUI : MonoBehaviour
     private MainManager mainManager;
     private Texture inventoryContents;
     public int[] ItemSlots;
-    private SC_PickItem[] availableItems;
+    public SC_PickItem[] availableItems;
     private ProgressBar progressBar;
     private SC_InventorySystem inventorySystem;
     [SerializeField] private UIDocument _HPbarUIDokument;

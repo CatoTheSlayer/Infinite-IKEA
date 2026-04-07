@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 93526888}
   - component: {fileID: 93526887}
-  - component: {fileID: 93526889}
   m_Layer: 5
   m_Name: FoodMenuUI
   m_TagString: Untagged
@@ -175,24 +174,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &93526889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93526886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16edb2ab339a544a69598d48a2d6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatUI1
-  _MenuUIDokument: {fileID: 677708668}
-  _AttackMenuUIDokument: {fileID: 411663394}
-  _FoodMenuUIDokument: {fileID: 93526887}
-  _InventoryMenuUIDokument: {fileID: 633108691}
-  _HPbarUIDokument: {fileID: 0}
-  ItemSlots: 
 --- !u!1001 &325559648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -315,15 +296,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 411663393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16edb2ab339a544a69598d48a2d6b5, type: 3}
+  m_Script: {fileID: 11500000, guid: eba090908ad0d17488225b181b7875c9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatUI1
-  _MenuUIDokument: {fileID: 677708668}
-  _AttackMenuUIDokument: {fileID: 411663394}
-  _FoodMenuUIDokument: {fileID: 93526887}
-  _InventoryMenuUIDokument: {fileID: 633108691}
-  _HPbarUIDokument: {fileID: 0}
+  m_EditorClassIdentifier: '::'
   ItemSlots: 
+  availableItems: []
+  _HPbarUIDokument: {fileID: 1934024245}
 --- !u!1 &593561282
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +358,6 @@ GameObject:
   m_Component:
   - component: {fileID: 633108692}
   - component: {fileID: 633108691}
-  - component: {fileID: 633108690}
   m_Layer: 5
   m_Name: InventioryUI
   m_TagString: Untagged
@@ -388,24 +365,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &633108690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633108689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16edb2ab339a544a69598d48a2d6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatUI1
-  _MenuUIDokument: {fileID: 677708668}
-  _AttackMenuUIDokument: {fileID: 411663394}
-  _FoodMenuUIDokument: {fileID: 93526887}
-  _InventoryMenuUIDokument: {fileID: 633108691}
-  _HPbarUIDokument: {fileID: 1934024245}
-  ItemSlots: 
 --- !u!114 &633108691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +437,7 @@ MonoBehaviour:
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
   _InventoryMenuUIDokument: {fileID: 633108691}
-  _HPbarUIDokument: {fileID: 0}
+  _HPbarUIDokument: {fileID: 1934024245}
   ItemSlots: 
 --- !u!114 &677708668
 MonoBehaviour:
@@ -914,7 +873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1934024246}
   - component: {fileID: 1934024245}
-  - component: {fileID: 1934024247}
   m_Layer: 5
   m_Name: HPbarUI
   m_TagString: Untagged
@@ -960,24 +918,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1934024247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934024244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e16edb2ab339a544a69598d48a2d6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatUI1
-  _MenuUIDokument: {fileID: 677708668}
-  _AttackMenuUIDokument: {fileID: 411663394}
-  _FoodMenuUIDokument: {fileID: 93526887}
-  _InventoryMenuUIDokument: {fileID: 633108691}
-  _HPbarUIDokument: {fileID: 0}
-  ItemSlots: 
 --- !u!1001 &2039558068
 PrefabInstance:
   m_ObjectHideFlags: 0
