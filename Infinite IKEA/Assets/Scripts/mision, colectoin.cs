@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class mision_colectoin : MonoBehaviour
 {
     public GameObject coin;
     public Transform objects;
-    public float CoinHigt = 2f;
+    public float CoinHigt = 1f;
+    public List<Transform> randObj = new List<Transform>();
+    public List<Transform> children = new List<Transform>();
     void Start()
     {
         Colection();
@@ -14,11 +17,38 @@ public class mision_colectoin : MonoBehaviour
     {
         foreach (Transform child in objects)
         {
-            if (Random.value > 0.5f) // 50% chance
+            children.Add(child);
+        }
+
+        for (int i = 0; i <= 4 ; i++ )
+        {
+            int randIndex = Random.Range(0, children.Count);
+            randObj.Add(children[randIndex]);
+        }
+
+        foreach (Transform obj in randObj)
+        {
+            Collider col = obj.GetComponent<Collider>();
+
+            if (col != null)
             {
-                Vector3 spawnPos = child.position + Vector3.up * CoinHigt;
+                float topY = col.bounds.max.y;
+
+                Vector3 spawnPos = new Vector3
+                (
+                obj.position.x,
+                topY + CoinHigt,
+                obj.position.z
+                );
+
+                Instantiate(coin, spawnPos, Quaternion.identity);
+            }
+            else
+            {
+                Vector3 spawnPos = obj.position + Vector3.up * (CoinHigt + 2f);
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }
         }
+
     }
 }
