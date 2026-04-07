@@ -157,7 +157,7 @@ public class CombatUI1 : MonoBehaviour
     //Due: Metode for attack knap 2
     private void AttackButton2(ClickEvent evt)
     {
-                Debug.Log("items in slot 1: " + mainManager.itemSlots[1]);
+        Debug.Log("items in slot 1: " + mainManager.itemSlots[1]);
         Debug.Log("item name in slot 1: " + mainManager.availableItems[mainManager.itemSlots[1]].itemName);
         progressBar.value -= mainManager.availableItems[mainManager.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
         Debug.Log("Damage dealt: " + mainManager.availableItems[mainManager.itemSlots[1]].itemDamage);
@@ -190,9 +190,9 @@ public class CombatUI1 : MonoBehaviour
         _BackToMenuFromInventory.UnregisterCallback<ClickEvent>(BlackToCombatMenu);
         _BackToMenuFromAttack.UnregisterCallback<ClickEvent>(BlackToCombatMenu);
     }
-    void Update()
+    void FixedUpdate()
     {
         ItemSlots = mainManager.itemSlots;
-        availableItems = mainManager.availableItems;
+        //availableItems = mainManager.availableItems;
     }
 }
