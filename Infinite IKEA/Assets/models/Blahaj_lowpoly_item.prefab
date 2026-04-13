@@ -129,6 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SC_PickItem
   itemName: "Bl\xE5haj"
   itemPreview: {fileID: 2800000, guid: 21a8e39b7b47f564bbb3a032581a28c8, type: 3}
+  itemDescription: A blue Shark plush
+  itemDamage: 30
+  itemHeal: 0
 --- !u!54 &4498738903348063199
 Rigidbody:
   m_ObjectHideFlags: 0
