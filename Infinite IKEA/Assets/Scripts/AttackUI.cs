@@ -9,6 +9,7 @@ public class AttackUI : MonoBehaviour
     private ProgressBar progressBar;
     private SC_InventorySystem inventorySystem;
     [SerializeField] private UIDocument _HPbarUIDokument;
+    [SerializeField] private UIDocument _MenuUIDokument;
 
 
     void Awake()
@@ -17,13 +18,14 @@ public class AttackUI : MonoBehaviour
     }
 
         //Due: Metode for attack knap 1
-    internal void AttackButton1()
+    public void AttackButton1()
     {
-        Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
+        /*Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
         Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
         progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
         Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
-        Debug.Log("Current HP: " + progressBar.value);
+        Debug.Log("Current HP: " + progressBar.value);*/
+        Debug.Log("Attack Button 1 Clicked!");
     }
     
     //Due: Metode for attack knap 2
@@ -55,8 +57,6 @@ public class AttackUI : MonoBehaviour
         Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
         Debug.Log("Current HP: " + progressBar.value);
     }
-
-
 
     void FixedUpdate()
     {

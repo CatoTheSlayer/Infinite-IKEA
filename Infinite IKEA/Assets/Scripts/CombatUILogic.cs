@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class CombatUI1 : MonoBehaviour
 {
@@ -151,25 +152,75 @@ public class CombatUI1 : MonoBehaviour
     //Due: Metode for attack knap 1
     private void AttackButton1(ClickEvent evt)
     {
-        attackUI.AttackButton1();
+        //attackUI.AttackButton1();
+        if(MainManager.Instance.itemSlots[0] == -1)
+        {
+            Debug.Log("No item in slot 0");
+            return;
+        }
+        else
+        {
+            Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
+            Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
+            progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
+            Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
+            Debug.Log("Current HP: " + progressBar.value);
+        }
     }
     
     //Due: Metode for attack knap 2
     private void AttackButton2(ClickEvent evt)
     {
-        attackUI.AttackButton2();
+        if(MainManager.Instance.itemSlots[1] == -1)
+        {
+            Debug.Log("No item in slot 1");
+            return;
+        }
+        else
+        {
+            Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
+            Debug.Log("item name in slot 1: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemName);
+            progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
+            Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
+            Debug.Log("Current HP: " + progressBar.value);
+        }
     }
     
     //Due: Metode for attack knap 3
     private void AttackButton3(ClickEvent evt)
     {
-        attackUI.AttackButton3();
+        if(MainManager.Instance.itemSlots[2] == -1)
+        {
+            Debug.Log("No item in slot 2");
+            return;
+        }
+        else
+        {
+            Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
+            Debug.Log("item name in slot 2: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemName);
+            progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage; // Example of calculating damage and updating HP
+            Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
+            Debug.Log("Current HP: " + progressBar.value);
+        }
+
     }
     
     //Due: Metode for attack knap 4
     private void AttackButton4(ClickEvent evt)
     {
-        attackUI.AttackButton4();
+        if(MainManager.Instance.itemSlots[3] == -1)
+        {
+            Debug.Log("No item in slot 3");
+            return;
+        }
+        else
+        {
+            Debug.Log("items in slot 3: " + MainManager.Instance.itemSlots[3]);
+            Debug.Log("item name in slot 3: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemName);
+            progressBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage; // Example of calculating damage and updating HP
+            Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
+            Debug.Log("Current HP: " + progressBar.value);
+        }
     }
 
 
