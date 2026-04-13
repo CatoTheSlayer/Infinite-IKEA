@@ -6,6 +6,8 @@ public class SC_InventorySystem : MonoBehaviour
     public Texture crosshairTexture;
     public PlayerController playerController;
     public SC_PickItem[] availableItems; //List with Prefabs of all the available items
+    public SC_PickItem[] foodItems; //List with Prefabs of all the available items
+    public SC_PickItem[] weaponItems; //List with Prefabs of all the available items
 
     //Available items slots
     int[] itemSlots = new int[12];
@@ -13,11 +15,13 @@ public class SC_InventorySystem : MonoBehaviour
     float windowAnimation = 1;
     float animationTimer = 0;
     Vector2 mousePosition;
+    int[] WeaponSlots = new int[4];
+    int[] FoodSlots = new int[4];
 
 
     //UI Drag & Drop
-    int hoveringOverIndex = -1;
-    int itemIndexToDrag = -1;
+    public int hoveringOverIndex = -1;
+    public int itemIndexToDrag = -1;
     Vector2 dragOffset = Vector2.zero;
 
     //Item Pick up
@@ -35,6 +39,15 @@ public class SC_InventorySystem : MonoBehaviour
         {
             itemSlots[i] = -1;
         }
+        for (int i = 0; i < WeaponSlots.Length; i++)
+        {
+            WeaponSlots[i] = -1;
+        }
+        for (int i = 0; i < FoodSlots.Length; i++)
+        {
+            FoodSlots[i] = -1;
+        }
+
     }
     void Start()
     {
