@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UIElements;
-
+using UnityEngine.SceneManagement;
 public class TurnManager : MonoBehaviour
 {
 
@@ -22,8 +22,6 @@ public class TurnManager : MonoBehaviour
     public int turnCounter = 1;
 
     public bool isPlayerTurn = true;
-    private bool enemyisAlive = true;
-
     [SerializeField]
     private TextMeshProUGUI turnCounterDisplay;
 
@@ -34,28 +32,13 @@ public class TurnManager : MonoBehaviour
         playerUnits.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         enemyHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("EnemyHp");
         playerHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("PlayerHp");
-    }
+        UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None; // Unlock the cursor for UI interaction
+        UnityEngine.Cursor.visible = true; // Make the cursor visible
 
-    private void EnableDeathScreen()
-    {
-        int counter = 0;
-        foreach (GameObject player in playerUnits)
-        {
-            /*if (!player.GetComponent<Unit>().isActiveAndEnabled)// somehow check if player is alive
-            {
-                counter++;
-            }*/
-        }
-
-        if (counter == playerUnits.Count)
-        {
-            //sdeathScreen.SetActive(true);
-        }
     }
 
     private void PlayerTurnStart()
     {
-        EnableDeathScreen();
         isPlayerTurn = true;
         turnCounter++;
         turnCounterDisplay.text = $"Turn: {turnCounter}";
@@ -64,15 +47,8 @@ public class TurnManager : MonoBehaviour
 
         if (playerHealthBar.value <= 0)
         {
-            EnableDeathScreen();
             Debug.Log("Player defeated!");
         }
-        if (!enemyisAlive)
-        {
-            Debug.Log("Enemy defeated!");
-            return; // Exit the method if the enemy is defeated
-        }
-        
         // Enabel at spilleren kan gøre ting, og reset stats som movement og actions
     }
 
@@ -85,20 +61,15 @@ public class TurnManager : MonoBehaviour
         if (enemyHealthBar.value <= 0)
         {
             Debug.Log("Enemy defeated!");
-            enemyisAlive = false;
+            SceneManager.LoadScene("StartMenu"); // Load victory screen when the enemy is defeated
             // Implement logic for when the enemy is defeated, such as ending the combat or transitioning to a victory screen
             return; // Exit the method if the enemy is defeated
         }
         //PlayerTurnStart(); // temp
-        if (enemyisAlive)
+        if (enemyHealthBar.value > 0) // Only start the enemy's turn if they are still alive
         {
             EnemyTurnStart();
         }
-        else
-        {
-            PlayerTurnStart(); // If the enemy is already defeated, start the player's turn immediately
-        }
-        
     }
 
     private void EnemyTurnStart()
