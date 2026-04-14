@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class mision_colectoin : MonoBehaviour
 {
     public GameObject coin;
+    public GameObject hatch;
+    public Transform flor;
     public Transform objects;
     public float CoinHigt = 1f;
     public List<Transform> randObj = new List<Transform>();
@@ -15,10 +17,11 @@ public class mision_colectoin : MonoBehaviour
     public PlayerController playerController;
     public TextMeshProUGUI QuestUI;
     public TextMeshProUGUI hint;
-    public int misoin = 1;
+    public int misoin = 0;
 
     private int CoinAmount = 0;
     private bool pressF = false;
+    private bool HatchSpawnnig = true;
 
     void Start()
     {
@@ -37,8 +40,31 @@ public class mision_colectoin : MonoBehaviour
     void Eskape()
     {
 
-    }
+        while (HatchSpawnnig == true) 
+        {
+            Collider Fcol = flor.GetComponent<Collider>();
+            Collider Hcol = hatch.GetComponent<Collider>();
 
+            float topY = Fcol.bounds.max.y;//Ask: Bestem det højste punkt på colidern på y aksen
+
+            float randXindex = Random.Range(Fcol.bounds.min.x, Fcol.bounds.max.x);
+            float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
+
+            Vector3 spawnPos = new Vector3
+            (
+            randXindex,
+            topY,
+            randZindex
+            );//Ask: Lan en ny vektor 3 til vores instantiate
+
+            if (!Hcol.gameObject.CompareTag("Untagged"))
+            {
+                Instantiate(hatch, spawnPos, Quaternion.identity);
+                QuestUI.text = "locate the hatch and escape the ikea";
+                HatchSpawnnig = false;
+            }
+        }
+    }
 
     void Colection()
     {
