@@ -34,8 +34,10 @@ public class mision_colectoin : MonoBehaviour
                 break;
 
             case 2:
-                Eskape();
-                break;
+                int levelChoser = Random.Range(0, 2);
+                if (levelChoser == 0 && SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
+                if (levelChoser == 1 && SceneManager.GetActiveScene().name == "SecondLevel") { Eskape(); }
+                  break;
         }
     }
 
