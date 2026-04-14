@@ -7,8 +7,7 @@ using UnityEngine.UIElements;
 
 public class CombatUI : MonoBehaviour
 {
-    private MainManager mainManager;
-    private SC_InventorySystem inventorySystem;
+    public MainManager mainManager; // Reference to the inventory system to access player's inventory and equipped items
     private UIDocument document;
     private Button AttackButton;
     private Button ItemButton;
