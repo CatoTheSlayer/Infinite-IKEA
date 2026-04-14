@@ -416,6 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a89b140c00465446967518ee588697d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  _HPbarUIDokument: {fileID: 1934024245}
 --- !u!4 &641086184
 Transform:
   m_ObjectHideFlags: 0
@@ -460,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0db2007621ce4ca476e910ba83575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
+  _HPbarUIDokument: {fileID: 1934024245}
   deathScreen: {fileID: 0}
   enemyController: {fileID: 641086183}
   turnCounter: 1
