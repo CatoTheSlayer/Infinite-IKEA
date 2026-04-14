@@ -46,18 +46,13 @@ public class mision_colectoin : MonoBehaviour
             Collider Hcol = hatch.GetComponent<Collider>();
 
             float topY = Fcol.bounds.max.y;//Ask: Bestem det højste punkt på colidern på y aksen
-
             float randXindex = Random.Range(Fcol.bounds.min.x, Fcol.bounds.max.x);
             float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
 
-            Vector3 spawnPos = new Vector3
-            (
-            randXindex,
-            topY,
-            randZindex
-            );//Ask: Lan en ny vektor 3 til vores instantiate
+            Vector3 spawnPos = new Vector3 (randXindex,topY,randZindex);
+            //Ask: Lan en ny vektor 3 til vores instantiate
 
-            if (!Hcol.gameObject.CompareTag("Untagged"))
+            if (!Physics.CheckSphere(spawnPos + Vector3.up * 1f, 0.5f))
             {
                 Instantiate(hatch, spawnPos, Quaternion.identity);
                 QuestUI.text = "locate the hatch and escape the ikea";
