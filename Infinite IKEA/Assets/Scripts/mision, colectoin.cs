@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class mision_colectoin : MonoBehaviour
 {
@@ -18,11 +19,12 @@ public class mision_colectoin : MonoBehaviour
     public TextMeshProUGUI QuestUI;
     public TextMeshProUGUI hint;
     public int misoin = 0;
+    public Animator Ani;
+    public bool pressF = false;
+
 
     private int CoinAmount = 0;
-    private bool pressF = false;
     private bool HatchSpawnnig = true;
-
     void Start()
     {
         switch (misoin)
@@ -109,30 +111,43 @@ public class mision_colectoin : MonoBehaviour
 
     void Update()
     {
-        if (misoin == 1)
+
+        RaycastHit hit;
+        Ray ray = playerController.playerCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            RaycastHit hit;
-            Ray ray = playerController.playerCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+            Transform objectHit = hit.transform;
 
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if (objectHit.CompareTag("Coin")|| objectHit.CompareTag("flor"))
             {
-                Transform objectHit = hit.transform;
-
-                if (objectHit.CompareTag("Coin"))
+                hint.text = "press F";
+                if (pressF == true && objectHit.CompareTag("Coin"))
                 {
-                    hint.text = "press F";
-                    if (pressF == true)
+                    Destroy(objectHit.gameObject);
+                    CoinAmount++;
+                    QuestUI.text = "Coleck coins:" + CoinAmount + "/10";
+                    pressF = false;
+                    if (CoinAmount == 10)
                     {
-                        Destroy(objectHit.gameObject);
-                        CoinAmount++;
-                        QuestUI.text = "Coleck coins:" + CoinAmount + "/10";
-                        pressF = false;
+                        SceneManager.LoadScene("StartMenu");
                     }
                 }
-                if (objectHit.CompareTag("Untagged"))
+
+                if (pressF == true && objectHit.CompareTag("flor"))
                 {
-                    hint.text = "";
+                    Ani.SetTrigger("exit");
+                    float tim1 = Time.deltaTime;
+                    if (tim1-Time.deltaTime >= 0.3)
+                    {
+                        SceneManager.LoadScene("StartMenu");
+                    }
                 }
+
+            }
+            if (objectHit.CompareTag("Untagged"))
+            {
+                hint.text = "";
             }
         }
     }

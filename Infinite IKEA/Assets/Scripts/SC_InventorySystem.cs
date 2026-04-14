@@ -1,5 +1,7 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class SC_InventorySystem : MonoBehaviour
 {
@@ -29,6 +31,8 @@ public class SC_InventorySystem : MonoBehaviour
     int detectedItemIndex;
 
     internal bool combatIsStarted = false;
+    public int CoinAmount = 0;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -56,7 +60,7 @@ public class SC_InventorySystem : MonoBehaviour
     }
     public void Interact(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             interact();
         }
@@ -64,7 +68,7 @@ public class SC_InventorySystem : MonoBehaviour
 
     public void Inventory(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             showInventory = !showInventory;
             animationTimer = 0;
@@ -83,11 +87,11 @@ public class SC_InventorySystem : MonoBehaviour
     }
     public void Mouseclick(InputAction.CallbackContext context)
     {
-        if(context.started)
+        if (context.started)
         {
             ItemDrag();
         }
-    }    
+    }
     public void MousePosition(InputAction.CallbackContext context)
     {
         mousePosition = context.ReadValue<Vector2>();
@@ -149,159 +153,177 @@ public class SC_InventorySystem : MonoBehaviour
         {
             detectedItem = null;
         }
-    }
-
-void interact()
-    {
-        if (detectedItem && detectedItemIndex > -1)
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
+            Transform objectHit = hit.transform;
 
-            //Add the item to inventory
-            int slotToAddTo = -1;
-            for (int i = 0; i < itemSlots.Length; i++)
+            if (objectHit.CompareTag("Coin") || objectHit.CompareTag("flor"))
             {
-                if (itemSlots[i] == -1)
+                Destroy(objectHit.gameObject);
+                CoinAmount++;
+                if (CoinAmount == 10)
                 {
-                    slotToAddTo = i;
-                    break;
+                    SceneManager.LoadScene("StartMenu");
                 }
-            }
-            if (slotToAddTo > -1)
-            {
-                itemSlots[slotToAddTo] = detectedItemIndex;
-                detectedItem.PickItem();
-            }
-        }
-    }
-    void ItemDrag()
-    {
-        if(hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1)
-        {
-            itemIndexToDrag = hoveringOverIndex;
-        }
-         else if (itemIndexToDrag > -1)
-        {
-            if (hoveringOverIndex < 0)
-            {
-                //Drop the item outside
-                Instantiate(availableItems[itemSlots[itemIndexToDrag]], playerController.playerCamera.transform.position + playerController.playerCamera.transform.forward * 5f, Quaternion.identity);
-                itemSlots[itemIndexToDrag] = -1;
             }
             else
             {
-                //Switch items between the selected slot and the one we are hovering on
-                int itemIndexTmp = itemSlots[itemIndexToDrag];
-                itemSlots[itemIndexToDrag] = itemSlots[hoveringOverIndex];
-                itemSlots[hoveringOverIndex] = itemIndexTmp;
-
+                
             }
-            itemIndexToDrag = -1;
         }
     }
-    void OnGUI()
-    {
-        //Inventory UI
-        GUI.Label(new Rect(5, 5, 200, 25), "Press 'Tab' to open Inventory");
 
-        //Inventory window
-        if (windowAnimation < 1)
-        {
-            GUILayout.BeginArea(new Rect(10 - (430 * windowAnimation), Screen.height / 2 - 200, 302, 430), GUI.skin.GetStyle("box"));
-
-            GUILayout.Label("Inventory", GUILayout.Height(25));
-
-            GUILayout.BeginVertical();
-            for (int i = 0; i < itemSlots.Length; i += 3)
+            void interact()
             {
-                GUILayout.BeginHorizontal();
-                //Display 3 items in a row
-                for (int a = 0; a < 3; a++)
+                if (detectedItem && detectedItemIndex > -1)
                 {
-                    if (i + a < itemSlots.Length)
+
+                    //Add the item to inventory
+                    int slotToAddTo = -1;
+                    for (int i = 0; i < itemSlots.Length; i++)
                     {
-                        if (itemIndexToDrag == i + a || (itemIndexToDrag > -1 && hoveringOverIndex == i + a))
+                        if (itemSlots[i] == -1)
                         {
-                            GUI.enabled = false;
+                            slotToAddTo = i;
+                            break;
                         }
-
-                        if (itemSlots[i + a] > -1)
-                        {
-                            if (availableItems[itemSlots[i + a]].itemPreview)
-                            {
-                                GUILayout.Box(availableItems[itemSlots[i + a]].itemPreview, GUILayout.Width(95), GUILayout.Height(95));
-                            }
-                            else
-                            {
-                                GUILayout.Box(availableItems[itemSlots[i + a]].itemName, GUILayout.Width(95), GUILayout.Height(95));
-                            }
-                        }
-                        else
-                        {
-                            //Empty slot
-                            GUILayout.Box("", GUILayout.Width(95), GUILayout.Height(95));
-                        }
-
-                        //Detect if the mouse cursor is hovering over item
-                        Rect lastRect = GUILayoutUtility.GetLastRect();
-                        Vector2 eventMousePositon = Event.current.mousePosition;
-                        if (Event.current.type == EventType.Repaint && lastRect.Contains(eventMousePositon))
-                        {
-                            hoveringOverIndex = i + a;
-                            if (itemIndexToDrag < 0)
-                            {
-                                dragOffset = new Vector2(lastRect.x - eventMousePositon.x, lastRect.y - eventMousePositon.y);
-                            }
-                        }
-
-                        GUI.enabled = true;
+                    }
+                    if (slotToAddTo > -1)
+                    {
+                        itemSlots[slotToAddTo] = detectedItemIndex;
+                        detectedItem.PickItem();
                     }
                 }
-                GUILayout.EndHorizontal();
             }
-            GUILayout.EndVertical();
-
-            if (Event.current.type == EventType.Repaint && !GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
+            void ItemDrag()
             {
-                hoveringOverIndex = -1;
+                if (hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1)
+                {
+                    itemIndexToDrag = hoveringOverIndex;
+                }
+                else if (itemIndexToDrag > -1)
+                {
+                    if (hoveringOverIndex < 0)
+                    {
+                        //Drop the item outside
+                        Instantiate(availableItems[itemSlots[itemIndexToDrag]], playerController.playerCamera.transform.position + playerController.playerCamera.transform.forward * 5f, Quaternion.identity);
+                        itemSlots[itemIndexToDrag] = -1;
+                    }
+                    else
+                    {
+                        //Switch items between the selected slot and the one we are hovering on
+                        int itemIndexTmp = itemSlots[itemIndexToDrag];
+                        itemSlots[itemIndexToDrag] = itemSlots[hoveringOverIndex];
+                        itemSlots[hoveringOverIndex] = itemIndexTmp;
+
+                    }
+                    itemIndexToDrag = -1;
+                }
             }
-
-            GUILayout.EndArea();
-        }
-
-        //Item dragging
-        if (itemIndexToDrag > -1)
-        {
-            if (availableItems[itemSlots[itemIndexToDrag]].itemPreview)
+            void OnGUI()
             {
-                GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemPreview);
-            }
-            else
-            {
-                GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemName);
+                //Inventory UI
+                GUI.Label(new Rect(5, 5, 200, 25), "Press 'Tab' to open Inventory");
+
+                //Inventory window
+                if (windowAnimation < 1)
+                {
+                    GUILayout.BeginArea(new Rect(10 - (430 * windowAnimation), Screen.height / 2 - 200, 302, 430), GUI.skin.GetStyle("box"));
+
+                    GUILayout.Label("Inventory", GUILayout.Height(25));
+
+                    GUILayout.BeginVertical();
+                    for (int i = 0; i < itemSlots.Length; i += 3)
+                    {
+                        GUILayout.BeginHorizontal();
+                        //Display 3 items in a row
+                        for (int a = 0; a < 3; a++)
+                        {
+                            if (i + a < itemSlots.Length)
+                            {
+                                if (itemIndexToDrag == i + a || (itemIndexToDrag > -1 && hoveringOverIndex == i + a))
+                                {
+                                    GUI.enabled = false;
+                                }
+
+                                if (itemSlots[i + a] > -1)
+                                {
+                                    if (availableItems[itemSlots[i + a]].itemPreview)
+                                    {
+                                        GUILayout.Box(availableItems[itemSlots[i + a]].itemPreview, GUILayout.Width(95), GUILayout.Height(95));
+                                    }
+                                    else
+                                    {
+                                        GUILayout.Box(availableItems[itemSlots[i + a]].itemName, GUILayout.Width(95), GUILayout.Height(95));
+                                    }
+                                }
+                                else
+                                {
+                                    //Empty slot
+                                    GUILayout.Box("", GUILayout.Width(95), GUILayout.Height(95));
+                                }
+
+                                //Detect if the mouse cursor is hovering over item
+                                Rect lastRect = GUILayoutUtility.GetLastRect();
+                                Vector2 eventMousePositon = Event.current.mousePosition;
+                                if (Event.current.type == EventType.Repaint && lastRect.Contains(eventMousePositon))
+                                {
+                                    hoveringOverIndex = i + a;
+                                    if (itemIndexToDrag < 0)
+                                    {
+                                        dragOffset = new Vector2(lastRect.x - eventMousePositon.x, lastRect.y - eventMousePositon.y);
+                                    }
+                                }
+
+                                GUI.enabled = true;
+                            }
+                        }
+                        GUILayout.EndHorizontal();
+                    }
+                    GUILayout.EndVertical();
+
+                    if (Event.current.type == EventType.Repaint && !GUILayoutUtility.GetLastRect().Contains(Event.current.mousePosition))
+                    {
+                        hoveringOverIndex = -1;
+                    }
+
+                    GUILayout.EndArea();
+                }
+
+                //Item dragging
+                if (itemIndexToDrag > -1)
+                {
+                    if (availableItems[itemSlots[itemIndexToDrag]].itemPreview)
+                    {
+                        GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemPreview);
+                    }
+                    else
+                    {
+                        GUI.Box(new Rect(mousePosition.x + dragOffset.x, Screen.height - mousePosition.y + dragOffset.y, 95, 95), availableItems[itemSlots[itemIndexToDrag]].itemName);
+                    }
+                }
+
+                //Display item name when hovering over it
+                if (hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1 && itemIndexToDrag < 0)
+                {
+                    GUI.Box(new Rect(mousePosition.x, Screen.height - mousePosition.y - 30, 100, 25), availableItems[itemSlots[hoveringOverIndex]].itemName);
+                }
+
+                if (!showInventory)
+                {
+                    //Player crosshair
+                    GUI.color = detectedItem ? Color.green : Color.white;
+                    GUI.DrawTexture(new Rect(Screen.width / 2 - 4, Screen.height / 2 - 4, 8, 8), crosshairTexture);
+                    GUI.color = Color.white;
+
+                    //Pick up message
+                    if (detectedItem)
+                    {
+                        GUI.color = new Color(0, 0, 0, 0.84f);
+                        GUI.Label(new Rect(Screen.width / 2 - 75 + 1, Screen.height / 2 - 50 + 1, 150, 20), "Press 'F' to pick '" + detectedItem.itemName + "'");
+                        GUI.color = Color.green;
+                        GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 20), "Press 'F' to pick '" + detectedItem.itemName + "'");
+                    }
+                }
             }
         }
-
-        //Display item name when hovering over it
-        if (hoveringOverIndex > -1 && itemSlots[hoveringOverIndex] > -1 && itemIndexToDrag < 0)
-        {
-            GUI.Box(new Rect(mousePosition.x, Screen.height - mousePosition.y - 30, 100, 25), availableItems[itemSlots[hoveringOverIndex]].itemName);
-        }
-
-        if (!showInventory)
-        {
-            //Player crosshair
-            GUI.color = detectedItem ? Color.green : Color.white;
-            GUI.DrawTexture(new Rect(Screen.width / 2 - 4, Screen.height / 2 - 4, 8, 8), crosshairTexture);
-            GUI.color = Color.white;
-
-            //Pick up message
-            if (detectedItem)
-            {
-                GUI.color = new Color(0, 0, 0, 0.84f);
-                GUI.Label(new Rect(Screen.width / 2 - 75 + 1, Screen.height / 2 - 50 + 1, 150, 20), "Press 'F' to pick '" + detectedItem.itemName + "'");
-                GUI.color = Color.green;
-                GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height / 2 - 50, 150, 20), "Press 'F' to pick '" + detectedItem.itemName + "'");
-            }
-        }
-    }
-}
