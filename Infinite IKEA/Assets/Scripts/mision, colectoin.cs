@@ -1,5 +1,9 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class mision_colectoin : MonoBehaviour
 {
@@ -9,19 +13,42 @@ public class mision_colectoin : MonoBehaviour
     public List<Transform> randObj = new List<Transform>();
     public List<Transform> children = new List<Transform>();
     public PlayerController playerController;
+    public TextMeshProUGUI QuestUI;
+    public TextMeshProUGUI hint;
+    public int misoin = 1;
+
+    private int CoinAmount = 0;
+    private bool pressF = false;
+
     void Start()
     {
-        Colection();
+        switch (misoin)
+        {
+            case 1:
+            Colection();
+                break;
+
+            case 2:
+                Eskape();
+                break;
+        }
     }
+
+    void Eskape()
+    {
+
+    }
+
 
     void Colection()
     {
+        QuestUI.text = "Colekt all furniture with a coin above it";
         foreach (Transform child in objects)
         {
             children.Add(child);//Ask: tilføj alle vores objekter som kan være med i motionen med på en liste
         }
 
-        for (int i = 0; i <= 4 ; i++ )
+        for (int i = 0; i <= 4; i++)
         {
             int randIndex = Random.Range(0, children.Count);
             randObj.Add(children[randIndex]);//Ask: vælg 5 random objekts og put dem ind i en anden liste
@@ -52,16 +79,39 @@ public class mision_colectoin : MonoBehaviour
 
         }
 
-        RaycastHit hit;
-        Ray ray = playerController.playerCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
 
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+    }
+    public void pickup(InputAction.CallbackContext context)
+    {
+        pressF = true;
+    }
+
+    void Update()
+    {
+        if (misoin == 1)
         {
-            Transform objectHit = hit.transform;
+            RaycastHit hit;
+            Ray ray = playerController.playerCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
 
-            if (objectHit.CompareTag("Coin") && Input.GetKeyDown(KeyCode.F))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                Destroy(objectHit.gameObject);
+                Transform objectHit = hit.transform;
+
+                if (objectHit.CompareTag("Coin"))
+                {
+                    hint.text = "press F";
+                    if (pressF == true)
+                    {
+                        Destroy(objectHit.gameObject);
+                        CoinAmount++;
+                        QuestUI.text = "Coleck coins:" + CoinAmount + "/10";
+                        pressF = false;
+                    }
+                }
+                if (objectHit.CompareTag("Untagged"))
+                {
+                    hint.text = "";
+                }
             }
         }
     }
