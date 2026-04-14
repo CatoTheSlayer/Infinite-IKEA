@@ -42,6 +42,8 @@ public class CombatUI1 : MonoBehaviour
     private SC_InventorySystem inventorySystem;
     private AttackUI attackUI;
     private TurnManager turnManager;
+    private PlayerAnimController playerAnimController;
+    private EnemyController enemyController;
 
     //Due: Opsætning af de forskellige knapper og UI Dokuments
     private void Awake()
@@ -69,9 +71,10 @@ public class CombatUI1 : MonoBehaviour
 
         playerHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("PlayerHp");
         playerHealthBar.value = 100; // Set initial HP value
-
-
         turnManager = FindFirstObjectByType<TurnManager>();
+        playerAnimController = FindFirstObjectByType<PlayerAnimController>();
+        enemyController = FindFirstObjectByType<EnemyController>();
+        
        
     }
 
@@ -177,6 +180,7 @@ public class CombatUI1 : MonoBehaviour
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
+            playerAnimController.playAttackAnimation();
             turnManager.PlayerTurnEnd();
         }
     }

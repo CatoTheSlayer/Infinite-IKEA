@@ -153,6 +153,8 @@ public class SC_InventorySystem : MonoBehaviour
         {
             detectedItem = null;
         }
+
+        
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             Transform objectHit = hit.transform;
