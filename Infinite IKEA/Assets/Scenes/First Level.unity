@@ -13340,6 +13340,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6774593721252105309, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: availableItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774593721252105309, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: 'availableItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4643091846525423468}
     - target: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -40013,6 +40021,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b39dd487d005e4b8a67735ee59fcef, type: 3}
+--- !u!114 &4643091846525423468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4766976524844837172, guid: 05b39dd487d005e4b8a67735ee59fcef, type: 3}
+  m_PrefabInstance: {fileID: 4643091846525423467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69b4ea210ae5144db19e118391dcc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SC_PickItem
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
