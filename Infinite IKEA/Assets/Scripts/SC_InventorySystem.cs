@@ -30,6 +30,12 @@ public class SC_InventorySystem : MonoBehaviour
     SC_PickItem detectedItem;
     int detectedItemIndex;
 
+    //Coin Pick up
+    CoinItem detectedCoin;
+    int detectedCoinIndex;
+
+    //Vent interaction
+    Vent detectedVent;
     internal bool combatIsStarted = false;
     public int CoinAmount = 0;
 
@@ -159,19 +165,52 @@ public class SC_InventorySystem : MonoBehaviour
         {
             Transform objectHit = hit.transform;
 
-            if (objectHit.CompareTag("Coin") || objectHit.CompareTag("flor"))
+            if (objectHit.CompareTag("Coin"))
             {
-                Destroy(objectHit.gameObject);
-                CoinAmount++;
-                if (CoinAmount == 10)
+                if ((detectedCoin == null || detectedCoin.transform != objectHit) && objectHit.GetComponent<CoinItem>() != null)
                 {
-                    SceneManager.LoadScene("StartMenu");
+                    detectedCoin = objectHit.GetComponent<CoinItem>();
+                    Debug.Log("Coin Detected");
+                    detectedCoinIndex ++; 
                 }
             }
             else
             {
-                
+                detectedCoin = null;
             }
+        }
+        else
+        {
+            detectedCoin = null;
+        }
+                
+                
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            Transform objectHit = hit.transform;
+
+            if (objectHit.CompareTag("Vent"))
+            {
+                if ((detectedVent == null || detectedVent.transform != objectHit) && objectHit.GetComponent<Vent>() != null)
+                {
+                    detectedVent = objectHit.GetComponent<Vent>();
+                    Debug.Log("Vent Detected");
+                }
+            }
+            else
+            {
+                detectedVent = null;
+            }
+        }
+        else
+        {
+            detectedVent = null;
+        }
+        if (CoinAmount == 5)
+        {
+            CoinAmount = 0;
+            SceneManager.LoadScene("CombatScene");
+            combatIsStarted = true;
         }
     }
 
@@ -195,6 +234,16 @@ public class SC_InventorySystem : MonoBehaviour
                         itemSlots[slotToAddTo] = detectedItemIndex;
                         detectedItem.PickItem();
                     }
+                }
+                if (detectedCoin && detectedCoinIndex > -1)
+                {
+                    CoinAmount++;
+                    detectedCoin.PickCoin();
+                }
+                if (detectedVent)
+                {
+                    SceneManager.LoadScene("CombatScene");
+                    combatIsStarted = true;
                 }
             }
             void ItemDrag()

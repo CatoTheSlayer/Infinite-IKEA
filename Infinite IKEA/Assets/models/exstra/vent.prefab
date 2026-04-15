@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1808344621508455755}
   - component: {fileID: 716506023791380762}
   - component: {fileID: 7996192709096149958}
+  - component: {fileID: -1626755037175243361}
   m_Layer: 0
   m_Name: vent
-  m_TagString: Untagged
+  m_TagString: Vent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,3 +77,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1626755037175243361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531253215502666304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9db2ef270e94f84c9b5a8eaf6dcab60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
