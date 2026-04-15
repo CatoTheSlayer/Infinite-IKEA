@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 23ee7c3b218390549ba24dc28c0c1810, type: 2}
+    - target: {fileID: 359647232687695095, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.03964
+      objectReference: {fileID: 0}
+    - target: {fileID: 359647232687695095, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0104
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       propertyPath: m_Name
       value: Blahaj_lowpoly
@@ -76,6 +84,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4471356135463996105}
     - targetCorrespondingSourceObject: {fileID: -1800835159896893642, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7292861554069962850}
@@ -107,3 +118,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2670650775140442973, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+--- !u!1 &8628261889815223988 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2542cd2654ae74345820ee08888bdb0c, type: 3}
+  m_PrefabInstance: {fileID: 8898224082738684901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4471356135463996105
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8628261889815223988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f05a24005f4c5f64e8fe13a0a9e36c9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
