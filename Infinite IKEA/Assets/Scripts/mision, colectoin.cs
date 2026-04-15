@@ -34,10 +34,9 @@ public class mision_colectoin : MonoBehaviour
                 break;
 
             case 2:
-                int levelChoser = Random.Range(0, 2);
-                if (levelChoser == 0 && SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
-                if (levelChoser == 1 && SceneManager.GetActiveScene().name == "SecondLevel") { Eskape(); }
-                  break;
+            if (SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
+            if (SceneManager.GetActiveScene().name == "SecondLevel") { Eskape();}
+                break;
         }
     }
 
@@ -49,7 +48,7 @@ public class mision_colectoin : MonoBehaviour
             Collider Fcol = flor.GetComponent<Collider>();
             Collider Hcol = hatch.GetComponent<Collider>();
 
-            float topY = Fcol.bounds.max.y;//Ask: Bestem det højste punkt på colidern på y aksen
+            float topY = Fcol.bounds.max.y;//Ask: Bestem det hï¿½jste punkt pï¿½ colidern pï¿½ y aksen
             float randXindex = Random.Range(Fcol.bounds.min.x, Fcol.bounds.max.x);
             float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
 
@@ -70,22 +69,22 @@ public class mision_colectoin : MonoBehaviour
         QuestUI.text = "Colekt all furniture with a coin above it";
         foreach (Transform child in objects)
         {
-            children.Add(child);//Ask: tilføj alle vores objekter som kan være med i motionen med på en liste
+            children.Add(child);//Ask: tilfï¿½j alle vores objekter som kan vï¿½re med i motionen med pï¿½ en liste
         }
 
         for (int i = 0; i <= 4; i++)
         {
             int randIndex = Random.Range(0, children.Count);
-            randObj.Add(children[randIndex]);//Ask: vælg 5 random objekts og put dem ind i en anden liste
+            randObj.Add(children[randIndex]);//Ask: vï¿½lg 5 random objekts og put dem ind i en anden liste
         }
 
         foreach (Transform obj in randObj)
         {
             Collider col = obj.GetComponent<Collider>();
 
-            if (col != null)//Ask: hvis objet har en colider så vil den sette coinen med coin higt højde
+            if (col != null)//Ask: hvis objet har en colider sï¿½ vil den sette coinen med coin higt hï¿½jde
             {
-                float topY = col.bounds.max.y;//Ask: Bestem det højste punkt på colidern på y aksen
+                float topY = col.bounds.max.y;//Ask: Bestem det hï¿½jste punkt pï¿½ colidern pï¿½ y aksen
 
                 Vector3 spawnPos = new Vector3
                 (
@@ -98,7 +97,7 @@ public class mision_colectoin : MonoBehaviour
             }
             else
             {
-                Vector3 spawnPos = obj.position + Vector3.up * (CoinHigt + 2f);//Ask: bare gang coin heigt direkte på
+                Vector3 spawnPos = obj.position + Vector3.up * (CoinHigt + 2f);//Ask: bare gang coin heigt direkte pï¿½
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }
 
@@ -106,51 +105,5 @@ public class mision_colectoin : MonoBehaviour
 
 
     }
-    public void pickup(InputAction.CallbackContext context)
-    {
-        pressF = true;
-    }
 
-    void Update()
-    {
-
-        RaycastHit hit;
-        Ray ray = playerController.playerCamera.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            Transform objectHit = hit.transform;
-
-            if (objectHit.CompareTag("Coin")|| objectHit.CompareTag("flor"))
-            {
-                hint.text = "press F";
-                if (pressF == true && objectHit.CompareTag("Coin"))
-                {
-                    Destroy(objectHit.gameObject);
-                    CoinAmount++;
-                    QuestUI.text = "Coleck coins:" + CoinAmount + "/10";
-                    pressF = false;
-                    if (CoinAmount == 10)
-                    {
-                        SceneManager.LoadScene("StartMenu");
-                    }
-                }
-
-                if (pressF == true && objectHit.CompareTag("flor"))
-                {
-                    Ani.SetTrigger("exit");
-                    float tim1 = Time.deltaTime;
-                    if (tim1-Time.deltaTime >= 0.3)
-                    {
-                        SceneManager.LoadScene("StartMenu");
-                    }
-                }
-
-            }
-            if (objectHit.CompareTag("Untagged"))
-            {
-                hint.text = "";
-            }
-        }
-    }
 }
