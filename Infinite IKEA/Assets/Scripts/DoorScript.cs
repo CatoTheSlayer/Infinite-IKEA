@@ -9,7 +9,7 @@ public class DoorScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SecondLevel");
+            SceneManager.LoadScene(DoorExit);
         }
     }
 }
