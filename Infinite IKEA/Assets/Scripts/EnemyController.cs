@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("attackEnemy");
         Debug.Log("Playing enemy attack animation!");
     }
-    private void enemyDeath()
+    internal void enemyDeath()
     {
         animator.SetTrigger("death");
         Debug.Log("Playing enemy death animation!");

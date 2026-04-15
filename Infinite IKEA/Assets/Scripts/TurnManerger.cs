@@ -61,7 +61,8 @@ public class TurnManager : MonoBehaviour
         if (enemyHealthBar.value <= 0)
         {
             Debug.Log("Enemy defeated!");
-            SceneManager.LoadScene("StartMenu"); // Load victory screen when the enemy is defeated
+            enemyController.enemyDeath();
+            //SceneManager.LoadScene("StartMenu"); // Load victory screen when the enemy is defeated
             // Implement logic for when the enemy is defeated, such as ending the combat or transitioning to a victory screen
             return; // Exit the method if the enemy is defeated
         }
@@ -75,6 +76,7 @@ public class TurnManager : MonoBehaviour
     private void EnemyTurnStart()
     {
         // Disable at spilleren kan gøre ting, og flytte på enemies, angribe med enemies og tager ande actions.
+        WaitForSecondsRealtime wait = new WaitForSecondsRealtime(3f); // Wait for 1 second before starting the enemy's turn
         Debug.Log("Enemy turn started");
         enemyController.EnemyTurn();
 

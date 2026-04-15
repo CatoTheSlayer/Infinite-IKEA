@@ -206,6 +206,7 @@ public class SC_InventorySystem : MonoBehaviour
         {
             detectedVent = null;
         }
+        
         if (CoinAmount == 5)
         {
             CoinAmount = 0;
