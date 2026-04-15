@@ -54,7 +54,7 @@ public class mision_colectoin : MonoBehaviour
             float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
 
             Vector3 spawnPos = new Vector3 (randXindex,topY,randZindex);
-            //Ask: Lan en ny vektor 3 til vores instantiate
+            //Ask: Laver en ny vektor 3 til vores instantiate
 
             if (!Physics.CheckSphere(spawnPos + Vector3.up * 1f, 0.5f))
             {
@@ -92,7 +92,7 @@ public class mision_colectoin : MonoBehaviour
                 obj.position.x,
                 topY + CoinHigt,
                 obj.position.z
-                );//Ask: Lan en ny vektor 3 til vores instantiate
+                );//Ask: laver en ny vektor 3 til vores instantiate
 
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }

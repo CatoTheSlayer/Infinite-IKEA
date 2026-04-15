@@ -13358,7 +13358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.52
+      value: -3.9
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13366,7 +13366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.571
+      value: -28.1
       objectReference: {fileID: 0}
     - target: {fileID: 8520049863523863641, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15455,7 +15455,7 @@ MonoBehaviour:
   playerController: {fileID: 1288121132}
   QuestUI: {fileID: 457911910}
   hint: {fileID: 758138386}
-  misoin: 2
+  misoin: 1
   Ani: {fileID: 2739362232182822161, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
   pressF: 0
 --- !u!1 &806900211 stripped
