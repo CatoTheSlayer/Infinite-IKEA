@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
   _HPbarUIDokument: {fileID: 1934024245}
   deathScreen: {fileID: 0}
-  enemyController: {fileID: 0}
+  enemyController: {fileID: 981479945}
   turnCounter: 1
   isPlayerTurn: 1
   turnCounterDisplay: {fileID: 0}
