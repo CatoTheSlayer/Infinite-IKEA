@@ -1165,6 +1165,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1406a544237277942b0703806de38a20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546793768}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1406a544237277942b0703806de38a20, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1546793769}
   m_SourcePrefab: {fileID: 100100000, guid: 1406a544237277942b0703806de38a20, type: 3}
 --- !u!1 &1293378992
 GameObject:
@@ -1318,6 +1321,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 1546793767}
+--- !u!81 &1546793769
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546793765}
+  m_Enabled: 1
 --- !u!1001 &1732800650
 PrefabInstance:
   m_ObjectHideFlags: 0
