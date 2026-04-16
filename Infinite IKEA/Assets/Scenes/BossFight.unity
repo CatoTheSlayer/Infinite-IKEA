@@ -864,6 +864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blahaj_lowpoly
       objectReference: {fileID: 0}
+    - target: {fileID: 8628261889815223988, guid: b5ab13fe0361d574684fb783fd494931, type: 3}
+      propertyPath: m_TagString
+      value: Boss
+      objectReference: {fileID: 0}
     - target: {fileID: 9004506370137539598, guid: b5ab13fe0361d574684fb783fd494931, type: 3}
       propertyPath: m_LocalScale.x
       value: 400
@@ -1464,9 +1468,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff0db2007621ce4ca476e910ba83575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TurnManager
-  _HPbarUIDokument: {fileID: 0}
+  _HPbarUIDokument: {fileID: 1896766786}
   deathScreen: {fileID: 0}
   enemyController: {fileID: 0}
+  bossController: {fileID: 1556234644}
   turnCounter: 1
   isPlayerTurn: 1
   turnCounterDisplay: {fileID: 0}
