@@ -15176,7 +15176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976ab536013ef2d4cb333c96e7536c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::mision_colectoin
-  coin: {fileID: 3007452723137055163, guid: 9ecde690ae3837248abd1766d40815f7, type: 3}
+  coin: {fileID: 8390042805887474655, guid: 028312f0d23d99f4da4f3fa0ab32f53d, type: 3}
   hatch: {fileID: 2531253215502666304, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
   flor: {fileID: 1427961676}
   objects: {fileID: 806195171}
