@@ -153,9 +153,10 @@ public class CombatUI1 : MonoBehaviour
     }
 
     //Due: Metode som tager spilleren tilbage til Combatmenuen
+    //Due: Metode som tager spilleren tilbage til Combatmenuen
     private void BlackToCombatMenu(ClickEvent evt)
     {
-        Debug.Log("Du hhat trykkede på knappen tilbage til combat menu");
+        Debug.Log("Du har trykkede på knappen tilbage til combat menu");
         
         //Due: Hvilke UIDokumenter man kan se og hvilke man ikke kan se
          _MenuUIDokument.rootVisualElement.style.display = DisplayStyle.Flex;
