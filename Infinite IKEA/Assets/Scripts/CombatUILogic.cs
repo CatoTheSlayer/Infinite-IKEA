@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class CombatUI1 : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class CombatUI1 : MonoBehaviour
     [SerializeField] private UIDocument _MenuUIDokument;
     [SerializeField] private UIDocument _AttackMenuUIDokument;
     [SerializeField] private UIDocument _FoodMenuUIDokument;
-    [SerializeField] private UIDocument _InventoryMenuUIDokument;
     [SerializeField] private UIDocument _HPbarUIDokument;
    
    //Due: Opsætting af de forskellige knapper for CombatMenu
@@ -57,7 +57,6 @@ public class CombatUI1 : MonoBehaviour
 
         _AttackMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
         _FoodMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
-        _InventoryMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
 
         //Due: Sætter knapperne op, så scripted ved hvilke knapper der er hvad og hvad der sker når man trykker på den
         _AttackMenuButton = _MenuUIDokument.rootVisualElement.Q("AttackMenuButton") as Button;
@@ -93,7 +92,6 @@ public class CombatUI1 : MonoBehaviour
         //Due: Sætter UI dokumenter til man ikke kan se dem
         _MenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
         _FoodMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
-        _InventoryMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
 
         //Due: Opsætning af knapperne der bruges i denne menu
         _AttackButton1 = _AttackMenuUIDokument.rootVisualElement.Q("AttackButton1") as Button;
@@ -121,7 +119,6 @@ public class CombatUI1 : MonoBehaviour
         //Due: sætter UI dokumenter til man ikke kan se dem
         _MenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
         _AttackMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
-        _InventoryMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
 
         //Due: Opsætning af knapperne der bruges i denne menu
         _FoodButton1 = _FoodMenuUIDokument.rootVisualElement.Q("FoodButton1") as Button; 
@@ -142,7 +139,6 @@ public class CombatUI1 : MonoBehaviour
     private void OnInventoryMenuClick(ClickEvent evt)
     {
         Debug.Log("Du trykkede på Inventory Menu Knappen");
-        _InventoryMenuUIDokument.rootVisualElement.style.display = DisplayStyle.Flex;
 
         //Due: Sætter UI dokumenter til man ikke kan se dem
         _MenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
@@ -150,7 +146,6 @@ public class CombatUI1 : MonoBehaviour
         _FoodMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
 
         //Due: Opsætning af knapperne der bruges i denne menu
-        _BackToMenuFromInventory = _InventoryMenuUIDokument.rootVisualElement.Q("") as Button;
         _BackToMenuFromInventory.RegisterCallback<ClickEvent>(BlackToCombatMenu);
     }
 
@@ -164,7 +159,6 @@ public class CombatUI1 : MonoBehaviour
 
         _AttackMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
         _FoodMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
-        _InventoryMenuUIDokument.rootVisualElement.style.display = DisplayStyle.None;
 
     }
 
@@ -185,7 +179,14 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
-            enemyController.enemyHurt();
+            if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+            {
+                
+            }
+            else
+            {
+                enemyController.enemyHurt();
+            }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
         }
@@ -207,7 +208,14 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
-            enemyController.enemyHurt();
+            if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+            {
+                
+            }
+            else
+            {
+                enemyController.enemyHurt();
+            }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
         }
@@ -229,7 +237,14 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
-            enemyController.enemyHurt();
+            if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+            {
+                
+            }
+            else
+            {
+                enemyController.enemyHurt();
+            }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
         }
@@ -252,7 +267,14 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
-            enemyController.enemyHurt();
+            if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+            {
+                
+            }
+            else
+            {
+                enemyController.enemyHurt();
+            }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
         }
