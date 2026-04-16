@@ -207,7 +207,7 @@ public class SC_InventorySystem : MonoBehaviour
             detectedVent = null;
         }
         
-        if (CoinAmount == 5)
+        if (CoinAmount == 10)
         {
             CoinAmount = 0;
             SceneManager.LoadScene("StartMenu");
