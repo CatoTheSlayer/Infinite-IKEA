@@ -276,61 +276,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &633108689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 633108692}
-  - component: {fileID: 633108691}
-  m_Layer: 5
-  m_Name: InventioryUI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &633108691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633108689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
-  m_PanelSettings: {fileID: 11400000, guid: 5aca72a20575a5f4e938c009760240c5, type: 2}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 04b982031b4d3ed46a76ae69690ce1c2, type: 3}
-  m_SortingOrder: 0
-  m_Position: 0
-  m_WorldSpaceSizeMode: 1
-  m_WorldSpaceWidth: 1920
-  m_WorldSpaceHeight: 1080
-  m_PivotReferenceSize: 0
-  m_Pivot: 0
-  m_WorldSpaceCollider: {fileID: 0}
---- !u!4 &633108692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633108689}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646456654
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +361,7 @@ MonoBehaviour:
   _MenuUIDokument: {fileID: 677708668}
   _AttackMenuUIDokument: {fileID: 411663394}
   _FoodMenuUIDokument: {fileID: 93526887}
-  _InventoryMenuUIDokument: {fileID: 633108691}
+  _InventoryMenuUIDokument: {fileID: 0}
   _HPbarUIDokument: {fileID: 1934024245}
   eat_sound: {fileID: 677708671}
   hit_sound: {fileID: 677708670}
@@ -1165,9 +1110,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1406a544237277942b0703806de38a20, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1546793768}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1406a544237277942b0703806de38a20, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1546793769}
   m_SourcePrefab: {fileID: 100100000, guid: 1406a544237277942b0703806de38a20, type: 3}
 --- !u!1 &1293378992
 GameObject:
@@ -1321,14 +1263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   animator: {fileID: 1546793767}
---- !u!81 &1546793769
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546793765}
-  m_Enabled: 1
 --- !u!1001 &1732800650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1683,7 +1617,6 @@ SceneRoots:
   - {fileID: 677708669}
   - {fileID: 411663395}
   - {fileID: 93526888}
-  - {fileID: 633108692}
   - {fileID: 2039558068}
   - {fileID: 593561284}
   - {fileID: 2086782728}
