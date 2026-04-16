@@ -48,6 +48,8 @@ public class CombatUI1 : MonoBehaviour
     private TurnManager turnManager;
     private PlayerAnimController playerAnimController;
     private EnemyController enemyController;
+    private BossController bossController;
+
 
     //Due: Opsætning af de forskellige knapper og UI Dokuments
     private void Awake()
@@ -77,6 +79,7 @@ public class CombatUI1 : MonoBehaviour
         turnManager = FindFirstObjectByType<TurnManager>();
         playerAnimController = FindFirstObjectByType<PlayerAnimController>();
         enemyController = FindFirstObjectByType<EnemyController>();
+        bossController = FindFirstObjectByType<BossController>();
         
        
     }
@@ -181,7 +184,7 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
-                
+                bossController.enemyHurt();
             }
             else
             {
@@ -210,7 +213,7 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
-                
+                bossController.enemyHurt();
             }
             else
             {
@@ -239,7 +242,7 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
-                
+                bossController.enemyHurt();
             }
             else
             {
@@ -269,7 +272,7 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
-                
+                bossController.enemyHurt();
             }
             else
             {

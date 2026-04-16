@@ -11,6 +11,7 @@ public class BossController : MonoBehaviour
     ProgressBar enemyHealthBar;
     ProgressBar playerHealthBar;
     PlayerAnimController playerAnimController;
+    
     void Awake()
     {
         enemyHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("EnemyHp");
@@ -62,5 +63,10 @@ public class BossController : MonoBehaviour
     {
         animator.SetTrigger("Heal");
         Debug.Log("Playing enemy heal animation!");
+    }
+    internal void enemyHurt()
+    {
+        animator.SetTrigger("Hurt");
+        Debug.Log("Playing enemy hurt animation!");
     }
 }

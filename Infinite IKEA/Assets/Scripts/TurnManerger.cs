@@ -19,6 +19,8 @@ public class TurnManager : MonoBehaviour
     [SerializeField]
     private EnemyController enemyController;
 
+    [SerializeField]
+    private BossController bossController;
     public int turnCounter = 1;
 
     public bool isPlayerTurn = true;
@@ -95,7 +97,14 @@ public class TurnManager : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(3f);
         Debug.Log("Enemy turn started");
-        enemyController.EnemyTurn();
+        if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+        {
+            bossController.EnemyTurn();
+        }
+        else
+        {
+            enemyController.EnemyTurn();
+        }
         PlayerTurnStart();
     }
 

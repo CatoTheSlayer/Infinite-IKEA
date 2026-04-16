@@ -941,8 +941,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e106f426b0a712f488e17c70331a5fef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _HPbarUIDokument: {fileID: 0}
-  animator: {fileID: 0}
+  _HPbarUIDokument: {fileID: 1896766786}
+  animator: {fileID: 1556234645}
+--- !u!95 &1556234645 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4471356135463996105, guid: b5ab13fe0361d574684fb783fd494931, type: 3}
+  m_PrefabInstance: {fileID: 1556234642}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1679034046
 GameObject:
   m_ObjectHideFlags: 0
