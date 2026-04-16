@@ -20,8 +20,6 @@ public class mision_colectoin : MonoBehaviour
     public TextMeshProUGUI hint;
     public int misoin = 0;
     public Animator Ani;
-    public bool pressF = false;
-
 
     private int CoinAmount = 0;
     private bool HatchSpawnnig = true;
@@ -34,8 +32,10 @@ public class mision_colectoin : MonoBehaviour
                 break;
 
             case 2:
-            if (SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
-            if (SceneManager.GetActiveScene().name == "SecondLevel") { Eskape();}
+            System.Random rand = new System.Random();
+            int randomNumber = rand.Next(0,2);
+            if (SceneManager.GetActiveScene().name == "First Level" && randomNumber == 0) { Eskape();}
+            if (SceneManager.GetActiveScene().name == "SecondLevel" && randomNumber == 1) { Eskape();}
                 break;
         }
     }

@@ -15180,7 +15180,7 @@ MonoBehaviour:
   hatch: {fileID: 2531253215502666304, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
   flor: {fileID: 1427961676}
   objects: {fileID: 806195171}
-  CoinHigt: 2
+  CoinHigt: 1
   randObj: []
   children: []
   playerController: {fileID: 1288121132}
@@ -15188,7 +15188,6 @@ MonoBehaviour:
   hint: {fileID: 758138386}
   misoin: 2
   Ani: {fileID: 2739362232182822161, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
-  pressF: 0
 --- !u!1 &806900211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bf7bf1186b36d245bb279a6c29f095a, type: 3}
