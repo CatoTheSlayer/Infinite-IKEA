@@ -4,7 +4,7 @@ public class BossController : MonoBehaviour
 {
     [SerializeField] private UIDocument _HPbarUIDokument;
     [SerializeField] private Animator animator;
-
+    public AudioSource hit_sound;
 
     private TurnManager turnManager;
     int actions; // Example actions for the enemy
@@ -30,12 +30,14 @@ public class BossController : MonoBehaviour
                 AttackAnimation0();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 10; // Example of dealing damage to the player
+                hit_sound.Play();
                 break;
             case 2:
                 Debug.Log("Enemy deals large damage");
                 AttackAnimation1();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 20; // Example of dealing damage to the player
+                hit_sound.Play();
                 break;
             case 3:
                 Debug.Log("Enemy Heals");
