@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,8 @@ public class SC_InventorySystem : MonoBehaviour
     public SC_PickItem[] availableItems; //List with Prefabs of all the available items
     public SC_PickItem[] foodItems; //List with Prefabs of all the available items
     public SC_PickItem[] weaponItems; //List with Prefabs of all the available items
+    public TextMeshProUGUI QuestUI;
+    public TextMeshProUGUI hintUI;
 
     //Available items slots
     int[] itemSlots = new int[12];
@@ -239,6 +242,7 @@ public class SC_InventorySystem : MonoBehaviour
                 {
                     CoinAmount++;
                     detectedCoin.PickCoin();
+                    
                 }
                 if (detectedVent)
                 {

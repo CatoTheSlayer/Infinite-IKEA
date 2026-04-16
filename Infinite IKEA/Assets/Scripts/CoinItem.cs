@@ -17,7 +17,7 @@ public class CoinItem : MonoBehaviour
     }
     public void PickCoin()
     {
-        Destroy(gameObject);
-       lyd.Play();
+        lyd.Play();
+        Destroy(gameObject);  
     }
 }
