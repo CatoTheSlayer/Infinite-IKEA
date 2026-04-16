@@ -1,4 +1,4 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:ProgressBar value="22" title="HP" name="EnemyHp"/>
-    <ui:ProgressBar value="22" title="PlayerHp" name="PlayerHp" style="top: 70%; width: 50%;"/>
+    <ui:ProgressBar value="22" title="ZombieHP" name="EnemyHp" style="width: 40%; left: 55%; top: 12%;"/>
+    <ui:ProgressBar value="22" title="PlayerHp" name="PlayerHp" style="top: 5%; width: 40%; left: 5px;"/>
 </ui:UXML>

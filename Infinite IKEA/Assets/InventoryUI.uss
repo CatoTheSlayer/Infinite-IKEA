@@ -72,3 +72,31 @@
 
 
 
+
+.InventorySlotR2 {
+    background-color: rgb(188, 188, 188);
+    width: 100px;
+    height: 100px;
+    max-height: 100px;
+    max-width: 100px;
+    align-items: stretch;
+    justify-content: center;
+    align-self: stretch;
+    top: 5px;
+    align-content: flex-start;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    bottom: 5px;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    margin-right: 8px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    margin-top: 8px;
+    position: absolute;
+    right: 5px;
+    left: 5px;
+}
