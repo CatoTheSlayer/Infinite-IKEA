@@ -15,6 +15,13 @@ public class MissionShiftSript : MonoBehaviour
     {
         _StartMission1 = _MissionMenuDokument.rootVisualElement.Q("StartMission1") as Button;
         _StartMission1.RegisterCallback<ClickEvent>(OnStartMission1);
+
+        _StartMission2 = _MissionMenuDokument.rootVisualElement.Q("StartMission2") as Button;
+        _StartMission2.RegisterCallback<ClickEvent>(OnStartMission2);
+
+        _StartBoss = _MissionMenuDokument.rootVisualElement.Q("StartBoss") as Button;
+        _StartBoss.RegisterCallback<ClickEvent>(OnStartBoss);
+
     }
     void Start()
     {
@@ -26,5 +33,16 @@ public class MissionShiftSript : MonoBehaviour
     {
         MainManager.Instance.MissionSelect = 1;
         SceneManager.LoadScene("First Level");
+    }
+
+    private void OnStartMission2(ClickEvent evt)
+    {
+        MainManager.Instance.MissionSelect = 2;
+        SceneManager.LoadScene("First Level");
+    }
+
+    private void OnStartBoss(ClickEvent evt)
+    {
+        SceneManager.LoadScene("BossFight");
     }
 }
