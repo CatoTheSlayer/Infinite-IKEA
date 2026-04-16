@@ -13255,9 +13255,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1288121133}
-    - targetCorrespondingSourceObject: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1288121134}
   m_SourcePrefab: {fileID: 100100000, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
 --- !u!1 &718009220 stripped
@@ -25162,14 +25159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e994ac0f7e92f7408bf69d7e0287317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
---- !u!81 &1288121133
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 718009220}
-  m_Enabled: 1
 --- !u!82 &1288121134
 AudioSource:
   m_ObjectHideFlags: 0
