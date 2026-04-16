@@ -15186,7 +15186,7 @@ MonoBehaviour:
   playerController: {fileID: 1288121132}
   QuestUI: {fileID: 457911910}
   hint: {fileID: 758138386}
-  misoin: 2
+  misoin: 1
   Ani: {fileID: 2739362232182822161, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
 --- !u!1 &806900211 stripped
 GameObject:
