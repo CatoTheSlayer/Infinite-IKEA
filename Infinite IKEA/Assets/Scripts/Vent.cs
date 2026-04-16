@@ -13,4 +13,12 @@ public class Vent : MonoBehaviour
     {
         
     }
+    internal void VentAni()
+    {
+        Animator animator = GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetTrigger("exit");
+        }
+    }
 }
