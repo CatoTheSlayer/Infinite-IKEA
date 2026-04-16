@@ -40,7 +40,7 @@ public class mision_colectoin : MonoBehaviour
         }
     }
 
-    void Eskape()
+    public void Eskape()
     {
 
         while (HatchSpawnnig == true) 
