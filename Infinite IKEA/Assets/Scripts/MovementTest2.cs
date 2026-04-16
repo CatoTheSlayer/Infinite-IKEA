@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private InputAction lookAction;
     internal bool canMove = true;
     public Animator animator;
+    public AudioSource walk;
 
 [SerializeField]    internal Camera playerCamera;
 [SerializeField]    private float jumpForce = 5f;
@@ -129,10 +130,12 @@ public class PlayerController : MonoBehaviour
             if (input.y != 0||input.x != 0)
             {
                 animator.SetBool("isWalking", true);
+                walk.Play();
             }
             else
             {
                 animator.SetBool("isWalking", false);
+                walk.Stop();
             }
         }
     }
