@@ -40,7 +40,7 @@ public class mision_colectoin : MonoBehaviour
         }
     }
 
-    void Eskape()
+    public void Eskape()
     {
 
         while (HatchSpawnnig == true) 
@@ -64,7 +64,7 @@ public class mision_colectoin : MonoBehaviour
         }
     }
 
-    void Colection()
+    public void Colection()
     {
         QuestUI.text = "Colekt all furniture with a coin above it";
         foreach (Transform child in objects)
