@@ -181,6 +181,7 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
             turnManager.PlayerTurnEnd();
         }
     }
@@ -201,6 +202,7 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
             turnManager.PlayerTurnEnd();
         }
     }
@@ -221,6 +223,7 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
             turnManager.PlayerTurnEnd();
         }
 
@@ -242,6 +245,7 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
             turnManager.PlayerTurnEnd();
         }
     }

@@ -12,34 +12,39 @@ public class EnemyController : MonoBehaviour
     int actions; // Example actions for the enemy
     ProgressBar enemyHealthBar;
     ProgressBar playerHealthBar;
+    PlayerAnimController playerAnimController;
     void Awake()
     {
         enemyHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("EnemyHp");
         playerHealthBar = _HPbarUIDokument.rootVisualElement.Q<ProgressBar>("PlayerHp");
+        playerAnimController = FindFirstObjectByType<PlayerAnimController>();
     }
     public void EnemyTurn()
     {
         Debug.Log("Enemy's turn!");
         // Implement enemy actions here
-        actions = Random.Range(1, 3); // Randomly choose an action for the enemy
+        actions = Random.Range(1, 4); // Randomly choose an action for the enemy
         switch (actions) // Randomly choose an action for the enemy
         {
             case 1:
                 Debug.Log("Enemy attacks!");
                 // Implement attack logic here
                 AttackAnimation();
+                playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 10; // Example of dealing damage to the player
                 break;
             case 2:
                 Debug.Log("Enemy deals medium damage");
                 // Implement heal logic here
                 AttackAnimation();
+                playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 15; // Example of dealing damage to the player
                 break;
             case 3:
                 Debug.Log("Enemy uses a special ability!");
                 // Implement special ability logic here
                 AttackAnimation();
+                playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 20; // Example of dealing more damage to the player
                 break;
         }
@@ -54,6 +59,11 @@ public class EnemyController : MonoBehaviour
         animator.SetTrigger("death");
         Debug.Log("Playing enemy death animation!");
     }  
+    internal void enemyHurt()
+    {
+        animator.SetTrigger("Hurt");
+        Debug.Log("Playing enemy hurt animation!");
+    }
 
     
 
