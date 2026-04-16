@@ -13469,6 +13469,10 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0.715
       objectReference: {fileID: 0}
+    - target: {fileID: 6774593721252105309, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: crosshairTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 102cfb371d7f5e44a927ca7129ef1545, type: 3}
     - target: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -15358,7 +15362,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806195167}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 976ab536013ef2d4cb333c96e7536c77, type: 3}
   m_Name: 
