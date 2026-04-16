@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -40,16 +40,13 @@ public class TurnManager : MonoBehaviour
     private void PlayerTurnStart()
     {
         isPlayerTurn = true;
-        turnCounter++;
-        turnCounterDisplay.text = $"Turn: {turnCounter}";
-
-        Debug.Log($"Is player turn {isPlayerTurn}");
 
         if (playerHealthBar.value <= 0)
         {
             Debug.Log("Player defeated!");
+            SceneManager.LoadScene("StartMenu"); // Load defeat screen when the player is defeated
         }
-        // Enabel at spilleren kan gøre ting, og reset stats som movement og actions
+        // Enabel at spilleren kan gøre ting.
     }
 
     public void PlayerTurnEnd()
@@ -58,15 +55,21 @@ public class TurnManager : MonoBehaviour
         isPlayerTurn = false;
         Debug.Log($"Is player turn {isPlayerTurn}");
 
+        StartCoroutine(PlayerTurnEndCoroutine());
+    }
+
+    private IEnumerator PlayerTurnEndCoroutine()
+    {
         if (enemyHealthBar.value <= 0)
         {
             Debug.Log("Enemy defeated!");
-            SceneManager.LoadScene("StartMenu"); // Load victory screen when the enemy is defeated
-            // Implement logic for when the enemy is defeated, such as ending the combat or transitioning to a victory screen
-            return; // Exit the method if the enemy is defeated
+            enemyController.enemyDeath();
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("StartMenu");
+            yield break;
         }
-        //PlayerTurnStart(); // temp
-        if (enemyHealthBar.value > 0) // Only start the enemy's turn if they are still alive
+
+        if (enemyHealthBar.value > 0)
         {
             EnemyTurnStart();
         }
@@ -74,11 +77,15 @@ public class TurnManager : MonoBehaviour
 
     private void EnemyTurnStart()
     {
-        // Disable at spilleren kan gøre ting, og flytte på enemies, angribe med enemies og tager ande actions.
+        StartCoroutine(EnemyTurnCoroutine());
+    }
+
+    private IEnumerator EnemyTurnCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(3f);
         Debug.Log("Enemy turn started");
         enemyController.EnemyTurn();
-
-        PlayerTurnStart(); // temp
+        PlayerTurnStart();
     }
 
 

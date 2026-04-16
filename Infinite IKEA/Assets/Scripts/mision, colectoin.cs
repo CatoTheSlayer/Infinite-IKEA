@@ -20,8 +20,6 @@ public class mision_colectoin : MonoBehaviour
     public TextMeshProUGUI hint;
     public int misoin = 0;
     public Animator Ani;
-    public bool pressF = false;
-
 
     private int CoinAmount = 0;
     private bool HatchSpawnnig = true;
@@ -34,10 +32,11 @@ public class mision_colectoin : MonoBehaviour
                 break;
 
             case 2:
-                int levelChoser = Random.Range(0, 2);
-                if (levelChoser == 0 && SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
-                if (levelChoser == 1 && SceneManager.GetActiveScene().name == "SecondLevel") { Eskape(); }
-                  break;
+            System.Random rand = new System.Random();
+            int randomNumber = rand.Next(0,2);
+            if (SceneManager.GetActiveScene().name == "First Level" && randomNumber == 0) { Eskape();}
+            if (SceneManager.GetActiveScene().name == "SecondLevel" && randomNumber == 1) { Eskape();}
+                break;
         }
     }
 
@@ -54,7 +53,7 @@ public class mision_colectoin : MonoBehaviour
             float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
 
             Vector3 spawnPos = new Vector3 (randXindex,topY,randZindex);
-            //Ask: Lan en ny vektor 3 til vores instantiate
+            //Ask: Laver en ny vektor 3 til vores instantiate
 
             if (!Physics.CheckSphere(spawnPos + Vector3.up * 1f, 0.5f))
             {
@@ -92,7 +91,7 @@ public class mision_colectoin : MonoBehaviour
                 obj.position.x,
                 topY + CoinHigt,
                 obj.position.z
-                );//Ask: Lan en ny vektor 3 til vores instantiate
+                );//Ask: laver en ny vektor 3 til vores instantiate
 
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }

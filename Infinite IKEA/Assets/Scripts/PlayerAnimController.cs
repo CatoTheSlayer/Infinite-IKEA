@@ -13,4 +13,9 @@ public class PlayerAnimController : MonoBehaviour
         animator.SetTrigger("Eat");
         Debug.Log("Playing heal animation!");
     }
+    internal void playHurtAnimation()
+    {
+        animator.SetTrigger("isDamaged");
+        Debug.Log("Playing damage animation!");
+    }
 }

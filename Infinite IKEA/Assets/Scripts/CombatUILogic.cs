@@ -30,6 +30,10 @@ public class CombatUI1 : MonoBehaviour
     private Button _FoodButton4;
     private Button _BackToMenuFromFood;
 
+    //Ask: import af lyd
+    public AudioSource eat_sound;
+    public AudioSource hit_sound;
+
     //Due: Opsætning af knapperne for Inventory Menu
     private Button _BackToMenuFromInventory;
     //ian:
@@ -181,6 +185,8 @@ public class CombatUI1 : MonoBehaviour
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
             playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
+            hit_sound.Play();
             turnManager.PlayerTurnEnd();
         }
     }
@@ -200,6 +206,10 @@ public class CombatUI1 : MonoBehaviour
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
+            playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
+            hit_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
     }
     
@@ -218,6 +228,10 @@ public class CombatUI1 : MonoBehaviour
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
+            playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
+            hit_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
 
     }
@@ -237,6 +251,10 @@ public class CombatUI1 : MonoBehaviour
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
             Debug.Log("Current HP: " + enemyHealthBar.value);
+            playerAnimController.playAttackAnimation();
+            enemyController.enemyHurt();
+            hit_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
     }
 
@@ -255,6 +273,9 @@ public class CombatUI1 : MonoBehaviour
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
             Debug.Log("Current HP: " + playerHealthBar.value);
+            playerAnimController.playHealAnimation();
+            eat_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
     }
 
@@ -273,6 +294,9 @@ public class CombatUI1 : MonoBehaviour
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
             Debug.Log("Current HP: " + playerHealthBar.value);
+            playerAnimController.playHealAnimation();
+            eat_sound.Play();
+            turnManager.PlayerTurnEnd();  
         }
     }
     private void FoodButton3(ClickEvent evt)
@@ -290,6 +314,9 @@ public class CombatUI1 : MonoBehaviour
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
             Debug.Log("Current HP: " + playerHealthBar.value);
+            playerAnimController.playHealAnimation();
+            eat_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
     }
     private void FoodButton4(ClickEvent evt)
@@ -307,6 +334,9 @@ public class CombatUI1 : MonoBehaviour
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
             Debug.Log("Current HP: " + playerHealthBar.value);
+            playerAnimController.playHealAnimation();
+            eat_sound.Play();
+            turnManager.PlayerTurnEnd();
         }
     }
 

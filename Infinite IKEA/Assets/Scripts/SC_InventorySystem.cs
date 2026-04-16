@@ -206,11 +206,11 @@ public class SC_InventorySystem : MonoBehaviour
         {
             detectedVent = null;
         }
-        if (CoinAmount == 5)
+        
+        if (CoinAmount == 10)
         {
             CoinAmount = 0;
-            SceneManager.LoadScene("CombatScene");
-            combatIsStarted = true;
+            SceneManager.LoadScene("StartMenu");
         }
     }
 
@@ -242,7 +242,8 @@ public class SC_InventorySystem : MonoBehaviour
                 }
                 if (detectedVent)
                 {
-                    SceneManager.LoadScene("CombatScene");
+                    detectedVent.VentAni();
+                    SceneManager.LoadScene("StartMenu");
                     combatIsStarted = true;
                 }
             }
