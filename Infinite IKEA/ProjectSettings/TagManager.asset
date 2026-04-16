@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Vent
+  - Boss
   layers:
   - Default
   - TransparentFX

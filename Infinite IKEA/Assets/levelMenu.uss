@@ -1,54 +1,6 @@
 :root {
 }
 
-.bagrund {
-    background-color: rgb(247, 247, 247);
-}
 
-.Titel {
-    position: absolute;
-    align-self: center;
-    font-size: 50px;
-}
 
-.MissionBlock {
-    width: 200px;
-    height: 250px;
-    position: absolute;
-    align-self: flex-start;
-    background-color: rgb(222, 222, 222);
-    margin-top: 100px;
-    margin-right: 100px;
-    margin-bottom: 100px;
-    margin-left: 100px;
-}
 
-.MissionBlockTitle {
-    align-self: center;
-}
-
-.MissionBlockFiller {
-    position: absolute;
-    align-self: center;
-    margin-top: 40px;
-    margin-right: 40px;
-    margin-bottom: 40px;
-    margin-left: 40px;
-}
-
-.MissionBlockButton {
-    margin-top: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    border-top-left-radius: 100px;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    border-right-width: 10px;
-    border-top-width: 10px;
-    border-left-width: 10px;
-    border-bottom-width: 10px;
-    width: 10px;
-    height: 10px;
-}
