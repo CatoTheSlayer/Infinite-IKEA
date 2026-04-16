@@ -7,6 +7,7 @@ public class MainManager : MonoBehaviour
     public static MainManager Instance;
     public int[] itemSlots = new int[12]; // Example inventory slots, can be modified as needed
     public SC_PickItem[] availableItems; //List with Prefabs of all the available items
+    public int coinAmount = 0; // Example coin amount, can be modified as needed
 
 
     private void Awake()

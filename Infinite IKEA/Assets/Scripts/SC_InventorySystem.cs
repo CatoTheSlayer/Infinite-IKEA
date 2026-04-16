@@ -66,6 +66,7 @@ public class SC_InventorySystem : MonoBehaviour
     {
         MainManager.Instance.itemSlots = itemSlots; // Link the inventory system's item slots to the main manager's item slots for global access
         MainManager.Instance.availableItems = availableItems; // Link the inventory system's available items to the main manager's available items for global accesss
+        MainManager.Instance.coinAmount = CoinAmount; // Link the inventory system's coin amount to the main manager's coin amount for global accesss
     }
     public void Interact(InputAction.CallbackContext context)
     {
