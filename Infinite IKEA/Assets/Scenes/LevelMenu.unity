@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea67d6bc363d5624a9b04e13e8d8cdf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MissionShiftSript
-  _MissionMenuDokument: {fileID: 0}
+  _MissionMenuDokument: {fileID: 163550016}
   MissionSelect: 0
 --- !u!1 &796514780
 GameObject:

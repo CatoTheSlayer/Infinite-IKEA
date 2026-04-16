@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction moveAction;
     private InputAction lookAction;
-    internal bool canMove = true;
+    private InputAction jumpAction;
+    public bool canMove = true;
     public Animator animator;
 
 [SerializeField]    internal Camera playerCamera;
@@ -31,19 +32,24 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 input;
     private Vector2 lookInput;
-    private bool IsGrounded;
+    public bool IsGrounded;
     private float Height = 1.5f; // Adjust based on your character's height
 
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
-
-        moveAction = playerInput.actions["Move"];
-        lookAction = playerInput.actions["Look"];
         rigidBody = GetComponent<Rigidbody>();
 
-        // Ensure physics handles gravity + rotation
+    }
+
+
+    void Start()
+    {
+        moveAction = InputSystem.actions.FindAction("Move");
+        lookAction = InputSystem.actions.FindAction("Look");
+        jumpAction = InputSystem.actions.FindAction("Jump");
+ // Ensure physics handles gravity + rotation
         rigidBody.useGravity = true;
         rigidBody.freezeRotation = true;
         rigidBody.isKinematic = false; // required for MovePosition
@@ -53,27 +59,60 @@ public class PlayerController : MonoBehaviour
         rigidBody.angularDamping = 0f;
         rigidBody.sleepThreshold = 0f;
         rigidBody.WakeUp();
+        //playerInput.ActivateInput();
+        
+        Time.timeScale = 1; // Ensure time scale is normal at start
 
         // Make sure Input System input is captured even if Send Messages isn't wired up.
         if (moveAction != null)
         {
-            moveAction.performed += ctx => input = ctx.ReadValue<Vector2>();
-            moveAction.canceled += ctx => input = Vector2.zero;
+            
             moveAction.Enable();
+            moveAction.performed += move;
+            //moveAction.canceled += ctx => input = Vector2.zero;
+            Debug.Log ("Move action found and enabled.");
         }
 
         if (lookAction != null)
         {
-            lookAction.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
-            lookAction.canceled += ctx => lookInput = Vector2.zero;
             lookAction.Enable();
+            lookAction.performed += Look;
+            lookAction.canceled += ctx => lookInput = Vector2.zero;
+            //lookAction.canceled += ctx => lookInput = Vector2.zero;
+            Debug.Log ("Look action found and enabled.");
+
+        }
+        if (jumpAction != null)
+        {
+            jumpAction.Enable();
+            jumpAction.performed += Jump;
+            Debug.Log ("Jump action found and enabled.");
         }
     }
     void Update()
     {
-        // Read look input every frame so rotation stays responsive.
+        if (!moveAction.enabled)
+        {
+            Debug.LogWarning("Move action is not enabled!");
+            moveAction.Enable();
+        }
         if (lookAction != null)
-            lookInput = lookAction.ReadValue<Vector2>();
+        {
+            if (!lookAction.enabled)
+            {
+                Debug.LogWarning("Look action is not enabled!");
+                lookAction.Enable();
+            }
+        }
+        if (jumpAction != null)
+        {
+            if (!jumpAction.enabled)
+            {
+                Debug.LogWarning("Jump action is not enabled!");
+                jumpAction.Enable();
+            }
+        }
+
 
         HandleLook(Time.deltaTime);
 
@@ -92,6 +131,7 @@ public class PlayerController : MonoBehaviour
     public void move(InputAction.CallbackContext context)
     {
         input = context.ReadValue<Vector2>();
+        Debug.Log($"Move input: {input}");
     }
     public void Look(InputAction.CallbackContext context)
     {
@@ -99,6 +139,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Jump(InputAction.CallbackContext context)
     {
+        Debug.Log("Jump input received");
         if (context.started && canMove && IsGrounded)
         {
             animator.SetTrigger("isJumping");

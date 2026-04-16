@@ -18,14 +18,15 @@ public class mision_colectoin : MonoBehaviour
     public PlayerController playerController;
     public TextMeshProUGUI QuestUI;
     public TextMeshProUGUI hint;
-    public int misoin = 0;
+    public int MissionSelect = 0;
     public Animator Ani;
 
     private int CoinAmount = 0;
     private bool HatchSpawnnig = true;
     void Start()
     {
-        switch (misoin)
+        MissionSelect = MainManager.Instance.MissionSelect;
+        switch (MissionSelect)
         {
             case 1:
             Colection();

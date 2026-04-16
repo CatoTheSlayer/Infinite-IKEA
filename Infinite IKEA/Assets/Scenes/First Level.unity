@@ -5395,6 +5395,7 @@ GameObject:
   - component: {fileID: 289407820}
   - component: {fileID: 289407819}
   - component: {fileID: 289407818}
+  - component: {fileID: 289407821}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5409,7 +5410,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289407817}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
@@ -5418,17 +5419,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 8fd098df6932e1c4099d8f8df3bbbdf7, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -2647556324394458673, guid: 8fd098df6932e1c4099d8f8df3bbbdf7, type: 3}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -5463,6 +5464,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &289407821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289407817}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6110888b64a7e444a83b05799a02f695, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnsureActionAssetEnabled
+  OnEnabled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &290577598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc1b115f8d76c7943956002bba33ca48, type: 3}
@@ -13331,6 +13347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 2435179399931760029, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774593721252105309, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
+      propertyPath: crosshairTexture
+      value: 
+      objectReference: {fileID: -2236324273849735119, guid: 03dde1a14a46be642bbd6e8e7dd5822b, type: 3}
     - target: {fileID: 7766032969450182771, guid: fb0829b6343dd7d4b919366090a97b3a, type: 3}
       propertyPath: m_Name
       value: Player
@@ -15286,7 +15310,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806195167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 976ab536013ef2d4cb333c96e7536c77, type: 3}
   m_Name: 
@@ -15301,7 +15325,7 @@ MonoBehaviour:
   playerController: {fileID: 1288121132}
   QuestUI: {fileID: 457911910}
   hint: {fileID: 758138386}
-  misoin: 1
+  MissionSelect: 0
   Ani: {fileID: 2739362232182822161, guid: 30891de2c9d4d3e4692e50f6f2a6359d, type: 3}
 --- !u!1 &806900211 stripped
 GameObject:
@@ -39419,6 +39443,7 @@ MonoBehaviour:
   itemSlots: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   availableItems: []
   coinAmount: 0
+  MissionSelect: 0
 --- !u!4 &2107038473
 Transform:
   m_ObjectHideFlags: 0
