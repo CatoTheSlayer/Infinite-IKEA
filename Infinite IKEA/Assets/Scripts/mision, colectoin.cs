@@ -1,54 +1,110 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class mision_colectoin : MonoBehaviour
 {
     public GameObject coin;
+    public GameObject hatch;
+    public Transform flor;
     public Transform objects;
     public float CoinHigt = 1f;
     public List<Transform> randObj = new List<Transform>();
     public List<Transform> children = new List<Transform>();
+    public PlayerController playerController;
+    public TextMeshProUGUI QuestUI;
+    public TextMeshProUGUI hint;
+    public int misoin = 0;
+    public Animator Ani;
+    public bool pressF = false;
+
+
+    private int CoinAmount = 0;
+    private bool HatchSpawnnig = true;
     void Start()
     {
-        Colection();
+        switch (misoin)
+        {
+            case 1:
+            Colection();
+                break;
+
+            case 2:
+                int levelChoser = Random.Range(0, 2);
+                if (levelChoser == 0 && SceneManager.GetActiveScene().name == "First Level") { Eskape(); }
+                if (levelChoser == 1 && SceneManager.GetActiveScene().name == "SecondLevel") { Eskape(); }
+                  break;
+        }
+    }
+
+    void Eskape()
+    {
+
+        while (HatchSpawnnig == true) 
+        {
+            Collider Fcol = flor.GetComponent<Collider>();
+            Collider Hcol = hatch.GetComponent<Collider>();
+
+            float topY = Fcol.bounds.max.y;//Ask: Bestem det h�jste punkt p� colidern p� y aksen
+            float randXindex = Random.Range(Fcol.bounds.min.x, Fcol.bounds.max.x);
+            float randZindex = Random.Range(Fcol.bounds.min.z, Fcol.bounds.max.z);
+
+            Vector3 spawnPos = new Vector3 (randXindex,topY,randZindex);
+            //Ask: Lan en ny vektor 3 til vores instantiate
+
+            if (!Physics.CheckSphere(spawnPos + Vector3.up * 1f, 0.5f))
+            {
+                Instantiate(hatch, spawnPos, Quaternion.identity);
+                QuestUI.text = "locate the hatch and escape the ikea";
+                HatchSpawnnig = false;
+            }
+        }
     }
 
     void Colection()
     {
+        QuestUI.text = "Colekt all furniture with a coin above it";
         foreach (Transform child in objects)
         {
-            children.Add(child);
+            children.Add(child);//Ask: tilf�j alle vores objekter som kan v�re med i motionen med p� en liste
         }
 
-        for (int i = 0; i <= 4 ; i++ )
+        for (int i = 0; i <= 4; i++)
         {
             int randIndex = Random.Range(0, children.Count);
-            randObj.Add(children[randIndex]);
+            randObj.Add(children[randIndex]);//Ask: v�lg 5 random objekts og put dem ind i en anden liste
         }
 
         foreach (Transform obj in randObj)
         {
             Collider col = obj.GetComponent<Collider>();
 
-            if (col != null)
+            if (col != null)//Ask: hvis objet har en colider s� vil den sette coinen med coin higt h�jde
             {
-                float topY = col.bounds.max.y;
+                float topY = col.bounds.max.y;//Ask: Bestem det h�jste punkt p� colidern p� y aksen
 
                 Vector3 spawnPos = new Vector3
                 (
                 obj.position.x,
                 topY + CoinHigt,
                 obj.position.z
-                );
+                );//Ask: Lan en ny vektor 3 til vores instantiate
 
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }
             else
             {
-                Vector3 spawnPos = obj.position + Vector3.up * (CoinHigt + 2f);
+                Vector3 spawnPos = obj.position + Vector3.up * (CoinHigt + 2f);//Ask: bare gang coin heigt direkte p�
                 Instantiate(coin, spawnPos, Quaternion.identity);
             }
+
         }
 
+
     }
+
 }
