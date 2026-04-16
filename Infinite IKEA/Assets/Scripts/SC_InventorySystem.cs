@@ -247,7 +247,7 @@ public class SC_InventorySystem : MonoBehaviour
                 if (detectedVent)
                 {
                     detectedVent.VentAni();
-                    SceneManager.LoadScene("CombatScene");
+                    SceneManager.LoadScene("StartMenu");
                     combatIsStarted = true;
                 }
             }

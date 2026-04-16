@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ui:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ui="UnityEngine.UIElements"
-    xmlns:uie="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd"
->
-    
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/InventoryUI.uss?fileID=7433441132597879392&amp;guid=30675c71247d1244792c9fa378ad381d&amp;type=3#InventoryUI"/>
+    <ui:VisualElement name="InventoryOutside" class="Inventory InventoryDesign" style="flex-grow: 1;">
+        <ui:VisualElement name="InventoryIndside" class="nventoryIndeside" style="flex-grow: 1; left: 0%; right: 583px; bottom: 0%;">
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1; flex-direction: row;"/>
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1;"/>
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1;"/>
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1;"/>
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1;"/>
+            <ui:VisualElement name="InventorySlot" class="InventorySlot InventorySlotR1" style="flex-grow: 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
 </ui:UXML>
