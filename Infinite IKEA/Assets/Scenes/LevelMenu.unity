@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 163550017}
   - component: {fileID: 163550016}
+  - component: {fileID: 163550018}
   m_Layer: 5
   m_Name: LevelMenuUI
   m_TagString: Untagged
@@ -174,6 +175,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163550018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163550015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea67d6bc363d5624a9b04e13e8d8cdf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MissionShiftSript
 --- !u!1 &796514780
 GameObject:
   m_ObjectHideFlags: 0
