@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private UIDocument _HPbarUIDokument;
     [SerializeField] private Animator animator;
+    public AudioSource hit_sound;
 
 
     private TurnManager turnManager;
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour
                 AttackAnimation();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 10; // Example of dealing damage to the player
+                hit_sound.Play();
                 break;
             case 2:
                 Debug.Log("Enemy deals medium damage");
@@ -39,6 +41,7 @@ public class EnemyController : MonoBehaviour
                 AttackAnimation();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 15; // Example of dealing damage to the player
+                hit_sound.Play();
                 break;
             case 3:
                 Debug.Log("Enemy uses a special ability!");
@@ -46,6 +49,7 @@ public class EnemyController : MonoBehaviour
                 AttackAnimation();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 20; // Example of dealing more damage to the player
+                hit_sound.Play();
                 break;
         }
     }

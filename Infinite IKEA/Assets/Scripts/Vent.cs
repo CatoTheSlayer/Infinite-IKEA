@@ -3,6 +3,7 @@ using UnityEngine;
 public class Vent : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Animator animator;
     void Start()
     {
         
@@ -15,10 +16,6 @@ public class Vent : MonoBehaviour
     }
     internal void VentAni()
     {
-        Animator animator = GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.SetTrigger("exit");
-        }
+        animator.SetTrigger("exit");
     }
 }
