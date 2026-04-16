@@ -62,11 +62,22 @@ public class TurnManager : MonoBehaviour
     {
         if (enemyHealthBar.value <= 0)
         {
-            Debug.Log("Enemy defeated!");
-            enemyController.enemyDeath();
-            yield return new WaitForSeconds(2f);
-            SceneManager.LoadScene("StartMenu");
-            yield break;
+            if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
+            {
+                Debug.Log("Boss defeated!");
+                FindFirstObjectByType<BossController>().enemyDeath();
+                yield return new WaitForSeconds(2f);
+                SceneManager.LoadScene("StartMenu");
+                yield break;
+            }
+            else
+            {
+                Debug.Log("Enemy defeated!");
+                enemyController.enemyDeath();
+                yield return new WaitForSeconds(2f);
+                SceneManager.LoadScene("StartMenu");
+                yield break;
+            }
         }
 
         if (enemyHealthBar.value > 0)

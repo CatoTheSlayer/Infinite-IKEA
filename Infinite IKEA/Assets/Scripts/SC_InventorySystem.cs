@@ -241,13 +241,14 @@ public class SC_InventorySystem : MonoBehaviour
                 if (detectedCoin && detectedCoinIndex > -1)
                 {
                     CoinAmount++;
+                    QuestUI.text = "Coins: " + CoinAmount + "/10";
                     detectedCoin.PickCoin();
                     
                 }
                 if (detectedVent)
                 {
                     detectedVent.VentAni();
-                    SceneManager.LoadScene("StartMenu");
+                    SceneManager.LoadScene("CombatScene");
                     combatIsStarted = true;
                 }
             }

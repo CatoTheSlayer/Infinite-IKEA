@@ -25,6 +25,9 @@ public class StartMenuEvents : MonoBehaviour
 
         _SettingsButton = _StartMenuDokument.rootVisualElement.Q("SettingsButton") as Button;
         _SettingsButton.RegisterCallback<ClickEvent>(OnSettingClick);
+
+        UnityEngine.Cursor.lockState = UnityEngine.CursorLockMode.None; // Unlock the cursor for UI interaction
+        UnityEngine.Cursor.visible = true; // Make the cursor visible
     }    
 
     private void OnDisable()

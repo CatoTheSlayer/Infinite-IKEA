@@ -1,12 +1,9 @@
-using NUnit.Framework.Internal;
 using UnityEngine;
 using UnityEngine.UIElements;
-
-public class EnemyController : MonoBehaviour
+public class BossController : MonoBehaviour
 {
     [SerializeField] private UIDocument _HPbarUIDokument;
     [SerializeField] private Animator animator;
-    public AudioSource hit_sound;
 
 
     private TurnManager turnManager;
@@ -29,46 +26,41 @@ public class EnemyController : MonoBehaviour
         {
             case 1:
                 Debug.Log("Enemy attacks!");
-                // Implement attack logic here
-                AttackAnimation();
+                AttackAnimation0();
                 playerAnimController.playHurtAnimation();
                 playerHealthBar.value -= 10; // Example of dealing damage to the player
-                hit_sound.Play();
                 break;
             case 2:
-                Debug.Log("Enemy deals medium damage");
-                // Implement heal logic here
-                AttackAnimation();
+                Debug.Log("Enemy deals large damage");
+                AttackAnimation1();
                 playerAnimController.playHurtAnimation();
-                playerHealthBar.value -= 15; // Example of dealing damage to the player
-                hit_sound.Play();
+                playerHealthBar.value -= 20; // Example of dealing damage to the player
                 break;
             case 3:
-                Debug.Log("Enemy uses a special ability!");
-                // Implement special ability logic here
-                AttackAnimation();
-                playerAnimController.playHurtAnimation();
-                playerHealthBar.value -= 20; // Example of dealing more damage to the player
-                hit_sound.Play();
+                Debug.Log("Enemy Heals");
+                enemyheal();
+                enemyHealthBar.value += 30; // Example of healing the enemy
                 break;
         }
     }
-    private void AttackAnimation()
+    private void AttackAnimation0()
     {
-        animator.SetTrigger("attackEnemy");
+        animator.SetTrigger("Attack0");
+        Debug.Log("Playing enemy attack animation!");
+    }
+    private void AttackAnimation1()
+    {
+        animator.SetTrigger("Attack1");
         Debug.Log("Playing enemy attack animation!");
     }
     internal void enemyDeath()
     {
-        animator.SetTrigger("death");
+        animator.SetTrigger("Death");
         Debug.Log("Playing enemy death animation!");
     }  
-    internal void enemyHurt()
+    internal void enemyheal()
     {
-        animator.SetTrigger("Hurt");
-        Debug.Log("Playing enemy hurt animation!");
+        animator.SetTrigger("Heal");
+        Debug.Log("Playing enemy heal animation!");
     }
-
-    
-
 }
