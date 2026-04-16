@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEditorInternal;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     public bool IsGrounded;
     private float Height = 1.5f; // Adjust based on your character's height
+    private bool Toggle = true;
 
 
     void Awake()
@@ -46,9 +48,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
+        /*moveAction = InputSystem.actions.FindAction("Move");
         lookAction = InputSystem.actions.FindAction("Look");
-        jumpAction = InputSystem.actions.FindAction("Jump");
+        jumpAction = InputSystem.actions.FindAction("Jump");*/
  // Ensure physics handles gravity + rotation
         rigidBody.useGravity = true;
         rigidBody.freezeRotation = true;
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1; // Ensure time scale is normal at start
 
         // Make sure Input System input is captured even if Send Messages isn't wired up.
-        if (moveAction != null)
+        /*if (moveAction != null)
         {  
             moveAction.Enable();
             moveAction.performed += move;
@@ -86,11 +88,11 @@ public class PlayerController : MonoBehaviour
             jumpAction.Enable();
             jumpAction.performed += Jump;
             Debug.Log ("Jump action found and enabled.");
-        }
+        }*/
     }
     void Update()
     {
-        if (!moveAction.enabled)
+        /*if (!moveAction.enabled)
         {
             Debug.LogWarning("Move action is not enabled!");
             moveAction.Enable();
@@ -110,8 +112,12 @@ public class PlayerController : MonoBehaviour
                 Debug.LogWarning("Jump action is not enabled!");
                 jumpAction.Enable();
             }
+        }*/
+        if (Toggle)
+        {
+            StartCoroutine(DisableInputTemporarily());
+            Toggle = false;
         }
-
 
         HandleLook(Time.deltaTime);
 
@@ -125,6 +131,13 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
             //Debug.Log("Not Grounded!");
         }
+    }
+//fuck denne kode der bare blipper player input
+    private IEnumerator DisableInputTemporarily()
+    {
+        GetComponent<PlayerInput>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<PlayerInput>().enabled = true;
     }
 
     public void move(InputAction.CallbackContext context)
