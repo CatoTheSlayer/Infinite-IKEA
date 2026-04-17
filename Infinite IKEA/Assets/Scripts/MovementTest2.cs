@@ -127,16 +127,14 @@ public class PlayerController : MonoBehaviour
             // Apply movement
             rigidBody.MovePosition(rigidBody.position + displacement);
 
-            if (input.y != 0||input.x != 0)
+            while (input.y != 0||input.x != 0)
             {
                 animator.SetBool("isWalking", true);
                 walk.Play();
             }
-            else
-            {
-                animator.SetBool("isWalking", false);
-                walk.Stop();
-            }
+            animator.SetBool("isWalking", false);
+            walk.Stop();
+
         }
     }
     public void HandleLook(float deltaTime)
