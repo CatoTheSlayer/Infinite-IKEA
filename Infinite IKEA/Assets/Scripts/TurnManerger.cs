@@ -77,7 +77,7 @@ public class TurnManager : MonoBehaviour
                 Debug.Log("Enemy defeated!");
                 enemyController.enemyDeath();
                 yield return new WaitForSeconds(2f);
-                SceneManager.LoadScene("StartMenu");
+                SceneManager.LoadScene("First Level");
                 yield break;
             }
         }
