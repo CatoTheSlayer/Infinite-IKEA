@@ -167,7 +167,7 @@ public class CombatUI1 : MonoBehaviour
     }
 
     //Due: Metode for attack knap 1
-    private void AttackButton1(ClickEvent evt)
+    private void AttackButton1(ClickEvent evt) //blåhaj attack
     {
         //attackUI.AttackButton1();
         if(MainManager.Instance.itemSlots[0] == -1)
@@ -177,11 +177,12 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
+            /*Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
             Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
-            Debug.Log("Current HP: " + enemyHealthBar.value);
+            Debug.Log("Current HP: " + enemyHealthBar.value);*/
+            enemyHealthBar.value -= 25; // Example of calculating damage and updating HP
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
@@ -197,7 +198,7 @@ public class CombatUI1 : MonoBehaviour
     }
     
     //Due: Metode for attack knap 2
-    private void AttackButton2(ClickEvent evt)
+    private void AttackButton2(ClickEvent evt) //lamp attack
     {
         if(MainManager.Instance.itemSlots[1] == -1)
         {
@@ -206,11 +207,12 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
+            /*Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
             Debug.Log("item name in slot 1: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
-            Debug.Log("Current HP: " + enemyHealthBar.value);
+            Debug.Log("Current HP: " + enemyHealthBar.value);*/
+            enemyHealthBar.value -= 10; // Example of calculating damage and updating HP
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
@@ -226,7 +228,7 @@ public class CombatUI1 : MonoBehaviour
     }
     
     //Due: Metode for attack knap 3
-    private void AttackButton3(ClickEvent evt)
+    private void AttackButton3(ClickEvent evt)//table attack
     {
         if(MainManager.Instance.itemSlots[2] == -1)
         {
@@ -235,11 +237,12 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
+            /*Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
             Debug.Log("item name in slot 2: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
-            Debug.Log("Current HP: " + enemyHealthBar.value);
+            Debug.Log("Current HP: " + enemyHealthBar.value);*/
+            enemyHealthBar.value -= 20; // Example of calculating damage and updating HP
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
@@ -256,7 +259,7 @@ public class CombatUI1 : MonoBehaviour
     }
     
     //Due: Metode for attack knap 4
-    private void AttackButton4(ClickEvent evt)
+    private void AttackButton4(ClickEvent evt) //chair attack
     {
         if(MainManager.Instance.itemSlots[3] == -1)
         {
@@ -265,11 +268,12 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 3: " + MainManager.Instance.itemSlots[3]);
+            /*Debug.Log("items in slot 3: " + MainManager.Instance.itemSlots[3]);
             Debug.Log("item name in slot 3: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
-            Debug.Log("Current HP: " + enemyHealthBar.value);
+            Debug.Log("Current HP: " + enemyHealthBar.value);*/
+            enemyHealthBar.value -= 15; // Example of calculating damage and updating HP
             playerAnimController.playAttackAnimation();
             if (GameObject.FindGameObjectsWithTag("Boss").Length > 0)
             {
@@ -284,7 +288,7 @@ public class CombatUI1 : MonoBehaviour
         }
     }
 
-    private void FoodButton1(ClickEvent evt)
+    private void FoodButton1(ClickEvent evt) //meat ball
     {
         //attackUI.AttackButton1();
         if(MainManager.Instance.itemSlots[0] == -1)
@@ -294,18 +298,19 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
+            /*Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
             Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage);
-            Debug.Log("Current HP: " + playerHealthBar.value);
+            Debug.Log("Current HP: " + playerHealthBar.value);*/
+            playerHealthBar.value += 15; // Example of calculating damage and updating HP
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
         }
     }
 
-    private void FoodButton2(ClickEvent evt)
+    private void FoodButton2(ClickEvent evt) //blåhaj eat
     {
         //attackUI.AttackButton1();
         if(MainManager.Instance.itemSlots[1] == -1)
@@ -315,17 +320,18 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
+            /*Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
             Debug.Log("item name in slot 1: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemName);
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
-            Debug.Log("Current HP: " + playerHealthBar.value);
+            Debug.Log("Current HP: " + playerHealthBar.value);*/
+            playerHealthBar.value += 25; // Example of calculating damage and updating HP
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();  
         }
     }
-    private void FoodButton3(ClickEvent evt)
+    private void FoodButton3(ClickEvent evt) //Ice cream eat
     {
         //attackUI.AttackButton1();
         if(MainManager.Instance.itemSlots[2] == -1)
@@ -335,17 +341,18 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
+            /*Debug.Log("items in slot 2: " + MainManager.Instance.itemSlots[2]);
             Debug.Log("item name in slot 2: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemName);
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[2]].itemDamage);
-            Debug.Log("Current HP: " + playerHealthBar.value);
+            Debug.Log("Current HP: " + playerHealthBar.value);*/
+            playerHealthBar.value += 10; // Example of calculating damage and updating HP
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
         }
     }
-    private void FoodButton4(ClickEvent evt)
+    private void FoodButton4(ClickEvent evt) //cookie eat
     {
         //attackUI.AttackButton1();
         if(MainManager.Instance.itemSlots[3] == -1)
@@ -355,11 +362,12 @@ public class CombatUI1 : MonoBehaviour
         }
         else
         {
-            Debug.Log("items in slot 3: " + MainManager.Instance.itemSlots[3]);
+            /*Debug.Log("items in slot 3: " + MainManager.Instance.itemSlots[3]);
             Debug.Log("item name in slot 3: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemName);
             playerHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemHeal; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[3]].itemDamage);
-            Debug.Log("Current HP: " + playerHealthBar.value);
+            Debug.Log("Current HP: " + playerHealthBar.value);*/
+            playerHealthBar.value += 5; // Example of calculating damage and updating HP
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
