@@ -242,7 +242,7 @@ public class SC_InventorySystem : MonoBehaviour
                 if (detectedCoin && detectedCoinIndex > -1)
                 {
                     CoinAmount++;
-                    QuestUI.text = "Coins: " + CoinAmount + "/10";
+                    QuestUI.text = "Coins: " + CoinAmount + "/5";
                     detectedCoin.PickCoin();
                     
                 }
