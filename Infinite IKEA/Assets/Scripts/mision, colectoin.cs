@@ -59,7 +59,7 @@ public class mision_colectoin : MonoBehaviour
             if (!Physics.CheckSphere(spawnPos + Vector3.up * 1f, 0.5f))
             {
                 Instantiate(hatch, spawnPos, Quaternion.identity);
-                QuestUI.text = "locate the hatch and escape the ikea";
+                QuestUI.text = "locate the hatch and escape the Ikea";
                 HatchSpawnnig = false;
             }
         }
@@ -67,7 +67,7 @@ public class mision_colectoin : MonoBehaviour
 
     public void Colection()
     {
-        QuestUI.text = "Colekt all furniture with a coin above it";
+        QuestUI.text = "Collect all furniture with a coin above it";
         foreach (Transform child in objects)
         {
             children.Add(child);//Ask: tilf�j alle vores objekter som kan v�re med i motionen med p� en liste
