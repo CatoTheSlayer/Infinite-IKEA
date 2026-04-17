@@ -169,14 +169,6 @@ public class CombatUI1 : MonoBehaviour
     //Due: Metode for attack knap 1
     private void AttackButton1(ClickEvent evt) //blåhaj attack
     {
-        //attackUI.AttackButton1();
-        if(MainManager.Instance.itemSlots[0] == -1)
-        {
-            Debug.Log("No item in slot 0");
-            return;
-        }
-        else
-        {
             /*Debug.Log("items in slot 0: " + MainManager.Instance.itemSlots[0]);
             Debug.Log("item name in slot 0: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[0]].itemDamage; // Example of calculating damage and updating HP
@@ -194,20 +186,19 @@ public class CombatUI1 : MonoBehaviour
             }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
     }
     
     //Due: Metode for attack knap 2
     private void AttackButton2(ClickEvent evt) //lamp attack
     {
-        if(MainManager.Instance.itemSlots[1] == -1)
+        /*if(MainManager.Instance.itemSlots[1] == -1)
         {
             Debug.Log("No item in slot 1");
             return;
         }
         else
         {
-            /*Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
+            Debug.Log("items in slot 1: " + MainManager.Instance.itemSlots[1]);
             Debug.Log("item name in slot 1: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemName);
             enemyHealthBar.value -= MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage; // Example of calculating damage and updating HP
             Debug.Log("Damage dealt: " + MainManager.Instance.availableItems[MainManager.Instance.itemSlots[1]].itemDamage);
@@ -224,13 +215,13 @@ public class CombatUI1 : MonoBehaviour
             }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
     }
     
     //Due: Metode for attack knap 3
     private void AttackButton3(ClickEvent evt)//table attack
     {
-        if(MainManager.Instance.itemSlots[2] == -1)
+        /*if(MainManager.Instance.itemSlots[2] == -1)
         {
             Debug.Log("No item in slot 2");
             return;
@@ -254,14 +245,14 @@ public class CombatUI1 : MonoBehaviour
             }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
 
     }
     
     //Due: Metode for attack knap 4
     private void AttackButton4(ClickEvent evt) //chair attack
     {
-        if(MainManager.Instance.itemSlots[3] == -1)
+        /*if(MainManager.Instance.itemSlots[3] == -1)
         {
             Debug.Log("No item in slot 3");
             return;
@@ -285,13 +276,13 @@ public class CombatUI1 : MonoBehaviour
             }
             hit_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
     }
 
     private void FoodButton1(ClickEvent evt) //meat ball
     {
         //attackUI.AttackButton1();
-        if(MainManager.Instance.itemSlots[0] == -1)
+        /*if(MainManager.Instance.itemSlots[0] == -1)
         {
             Debug.Log("No item in slot 0");
             return;
@@ -307,13 +298,13 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
     }
 
     private void FoodButton2(ClickEvent evt) //blåhaj eat
     {
         //attackUI.AttackButton1();
-        if(MainManager.Instance.itemSlots[1] == -1)
+        /*if(MainManager.Instance.itemSlots[1] == -1)
         {
             Debug.Log("No item in slot 1");
             return;
@@ -329,12 +320,12 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();  
-        }
+        //}
     }
     private void FoodButton3(ClickEvent evt) //Ice cream eat
     {
         //attackUI.AttackButton1();
-        if(MainManager.Instance.itemSlots[2] == -1)
+        /*if(MainManager.Instance.itemSlots[2] == -1)
         {
             Debug.Log("No item in slot 2");
             return;
@@ -350,12 +341,12 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
     }
     private void FoodButton4(ClickEvent evt) //cookie eat
     {
         //attackUI.AttackButton1();
-        if(MainManager.Instance.itemSlots[3] == -1)
+        /*if(MainManager.Instance.itemSlots[3] == -1)
         {
             Debug.Log("No item in slot 3");
             return;
@@ -371,7 +362,7 @@ public class CombatUI1 : MonoBehaviour
             playerAnimController.playHealAnimation();
             eat_sound.Play();
             turnManager.PlayerTurnEnd();
-        }
+        //}
     }
 
     private void OnDisable()
