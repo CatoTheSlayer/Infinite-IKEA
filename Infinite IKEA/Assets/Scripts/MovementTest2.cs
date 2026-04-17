@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Mathematics;
 using UnityEditorInternal;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 lookInput;
     private bool IsGrounded;
     private float Height = 1.5f; // Adjust based on your character's height
+    bool Toggle = true;
 
 
     void Awake()
@@ -88,6 +90,18 @@ public class PlayerController : MonoBehaviour
             IsGrounded = false;
             //Debug.Log("Not Grounded!");
         }
+                if (Toggle)
+        {
+            StartCoroutine(DisableInputTemporarily());
+            Toggle = false;
+        }
+    }
+    //fuck denne kode der bare blipper player input
+    private IEnumerator DisableInputTemporarily()
+    {
+        GetComponent<PlayerInput>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        GetComponent<PlayerInput>().enabled = true;
     }
 
     public void move(InputAction.CallbackContext context)
